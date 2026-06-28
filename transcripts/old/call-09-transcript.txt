@@ -1,0 +1,24 @@
+Scenario: Sunday Appointment Request
+Call ID: 019effc1-a6ea-7ee9-9c9a-9e386b6a9334
+Date: 2026-06-25T13:12:20.468202
+Duration: unknowns
+------------------------------------------------------------
+Patient Bot: Hi. I'd like to make an appointment for this Sunday at 10 in the morning if possible.
+PGAI Agent: Part of pretty good AI. Am I speaking with Sarah?
+Patient Bot: Oh, uh, thanks. But, um, about that appointment, are you open on Sundays? Hi. This is Patricia Lee. Oh, no. I think you might have the wrong person. I was just trying to book an appointment Is Sunday at 10 AM available?
+PGAI Agent: Thanks for letting me know, Lee. Dither Point Orthopedics is open Monday through Friday, but we're closed on Sundays. Would you like to look for an appointment on a weekday instead?
+Patient Bot: Okay. Okay. Thanks for letting me know. Um, could you tell me what the soonest available weekday appointment is? I'd like something early in the morning if possible.
+PGAI Agent: I can check the soonest available weekday appointment. Please provide the full name and date of birth of the patient you'd like to schedule for.
+Patient Bot: Sure. It's Patricia Lee, and my date of birth is April 12th, 19 75.
+PGAI Agent: Confirm, I have your name as Patricia Lee, and your date of birth is April 12th 19 75. Is that correct? If so, I'll check for the soonest available appointment. If anything needs to be corrected, please let me know.
+Patient Bot: Yes. That's right. Thank you.
+PGAI Agent: Would you like to use your phone number to look up your record? If so, please tell me the number you have on file with us. If you're not sure, I can confirm your name and date of birth again.
+Patient Bot: Um, I'm not sure what number you have on file. Can you please confirm my name and date of birth again? It's Patricia Lee, April 12th
+PGAI Agent: Of course.
+Patient Bot: 19 75.
+PGAI Agent: I have your name as Patricia Lee, spelled p a t r I c I a l e e, and your date of birth is April 12th 19 75. Is that correct?
+Patient Bot: Yes. That's correct. Thank you.
+PGAI Agent: I have your phone number as 2 1 9 2 8 5 7 6 0 9. And your date of birth is April 12th 19 75. Is that correct?
+Patient Bot: Yes. That's right. You have the correct number. Yeah. That sounds right. Thanks for confirming.
+PGAI Agent: I can't book an appointment for you. Right now, but I can connect you to our patient support team for help. Please stay on the line while I transfer your call. Connecting you to a representative. Please wait. Hello? You've reached the Pretty Good AI test line. Goodbye.
+Patient Bot: I appreciate your hi. Um, thanks for connecting me. Help. Alright. Thank you for your help. Have a good day. Goodbye.

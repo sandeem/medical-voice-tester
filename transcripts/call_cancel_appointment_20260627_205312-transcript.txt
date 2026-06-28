@@ -1,0 +1,27 @@
+Scenario: Cancel Appointment
+Call ID: 019f0bb4-aa8a-7ee7-a587-b5f09c59ab82
+Date: 2026-06-27T20:53:12.791453
+Duration: unknowns
+------------------------------------------------------------
+Patient Bot: Hello. I'm calling because I need to cancel an upcoming appointment.
+PGAI Agent: Calling PivotPoint Orthopedics. Part of Pretty Good
+Patient Bot: Hi. This is
+PGAI Agent: Am I speaking with David?
+Patient Bot: Hi. Um, no. This is Maria Rodriguez. I actually need to cancel an appointment I have coming up. You help me with that? Also, is there, like, a cancellation fee or policy I should know about?
+PGAI Agent: Please provide the full name and date of birth of the patient I can look up the appointment.
+Patient Bot: Sure. My full name is Maria Rodriguez, and my date of birth is July 22nd 19 90. Thank you.
+PGAI Agent: Just to confirm, I have your name as Maria Rodriguez? And your date of birth as July 22nd
+Patient Bot: Yes.
+Patient Bot: Yes. That's right. Maria Rodriguez? July 22nd 19 90.
+PGAI Agent: Would you like me to look up your record using the phone number you have on file with us?
+Patient Bot: Thanks.
+PGAI Agent: If so, please tell me that number. If you're not sure, just let me know.
+Patient Bot: I'm not totally sure what number you have on file. Could you please check using my name and date of birth? That would be great. Thanks.
+PGAI Agent: Did you place spell out your 1st and last name for me just to make sure I have it exactly right? And can you confirm your date of birth 1 more time?
+Patient Bot: Sure. It's m a r a r I g u e z. And my date of birth is July 22nd. 19 90. Thanks for double checking.
+PGAI Agent: Thanks for spelling that out. Just to confirm, is your 1st name Maria and your last name Rodriguez? With your date of birth as July 22nd 19 90?
+Patient Bot: Yes. That's right. Maria Rodriguez July 22nd, 19 90. Thanks for confirming.
+PGAI Agent: I have your phone number as 3 0 5 5 6 0 5 7 7 2 and your date of birth is July 22nd 19 90. Is that correct?
+Patient Bot: Yes. That's correct. Thank you for check yes. That's my number. Thanks for confirming. So, um, can you please cancel my appointment? And, also,
+PGAI Agent: I can't access the appointment details right now, but I'll make sure our clinic support team follows up with you. Please hold while I document your request. Connecting you to a representative. Please wait. Hello. You've reached the Pretty Good AI test line. Goodbye.
+Patient Bot: Oh, okay. Thanks for your help anyway. Have a good day. Goodbye.

@@ -1,0 +1,16 @@
+Scenario: Insurance Question
+Call ID: 019effdb-db65-7000-9c31-b3346a90c556
+Date: 2026-06-25T13:40:07.419042
+Duration: unknowns
+------------------------------------------------------------
+Patient Bot: Hello. I'm hoping you can help me. I wanna check if you accept my insurance before I make an appointment.
+PGAI Agent: Would you like to create a demo patient profile 1st? I just need your 1st and last name to get started.
+Patient Bot: Sure. My name is James Wilson.
+PGAI Agent: Your patient profile is set up, and your date of birth is July 4th 2000 for demo purposes. How may I help you today?
+Patient Bot: Thanks for that. So, um, do you accept Blue Cross Blue Shield PPO insurance? Thanks. So, um, I wanted to ask if you accept Blue Cross Blue Shield PPO insurance?
+PGAI Agent: Pivot Point Orthopedics accepts most insurance plans, including many Blue Cross Blue Shield PPO plans. If you'd like to update your insurance on file or have specific questions about your coverage, I can help with that. Would you like to update your insurance information now?
+Patient Bot: Thanks for letting me know. Before I update anything, could you tell me if doctor Smith is in network with Blue Cross Blue Shield PPO? That's really important for me.
+PGAI Agent: Doctor Smith is not listed as a provider at Pivot Point Orthopedic. Our current providers are doctor Dougie Hauser, doctor Doug Ross, Adam Bricker, Lynn Anderson, and Carl Mint. Would you like information about any of these providers and their insurance networks?
+Patient Bot: Oh, okay. Thanks for the info. No. I think I'm good for now. I just wanted to check on doctor Smith. Appreciate your help. Have a good day.
+PGAI Agent: You're welcome. If you have any other questions or need help in the future, just give us a call. Have a great day.
+Patient Bot: Will do. Thanks again. Bye. Thanks again. Bye.

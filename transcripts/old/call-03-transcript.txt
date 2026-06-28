@@ -1,0 +1,26 @@
+Scenario: Cancel Appointment
+Call ID: 019effae-daae-7000-9830-9e961f0d9783
+Date: 2026-06-25T12:51:28.187747
+Duration: unknowns
+------------------------------------------------------------
+Patient Bot: Hello. I'm calling because I need to cancel an upcoming
+PGAI Agent: Prima installs Thanks for calling PivotPoint Orthopedics.
+Patient Bot: appointment.
+PGAI Agent: Part of Pretty Good AI. Am I speaking with Sarah?
+Patient Bot: Hi. Um, this is Maria Rodriguez. Hi. No. This is Maria Rodriguez. I actually need to cancel my appointment. Could you help me with that?
+PGAI Agent: Please provide the full name and date of birth of the patient whose appointment you'd like to cancel.
+Patient Bot: Sure. It's Maria Rodriguez. My date of birth is July 22nd 19 90.
+PGAI Agent: Just to confirm, could you please spell your 1st and last name for me?
+Patient Bot: Of course, it's m a r a, last name, r o d r I g e z.
+PGAI Agent: Could you confirm if your 1st name is spelled m a r a or m a r I a?
+Patient Bot: Oh, I'm sorry. It's m r I a, Maria.
+PGAI Agent: Would you like to use your phone number to look up your record? If so, please provide the number you have on file with us. If you're not sure, I can confirm your name and date of birth again. Which would you prefer?
+Patient Bot: Uh, yes. I can provide my phone number. Um, I think you can just use my name and date of birth. That should be fine. Thanks.
+PGAI Agent: No problem. Could you please spell your 1st and last name for me 1 more time just to be sure?
+Patient Bot: Sure. It's m a r I a, and last name is r o I g e z.
+PGAI Agent: I have your phone number as 2 1 9 2 8 5 7 6 0 9. And your date of birth is July 22nd 19 90. Is that correct?
+Patient Bot: Yes. That's correct. Thank you.
+PGAI Agent: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I update your request for our staff. Connecting you to a representative. Please wait.
+Patient Bot: Okay. Thank you so much. I
+PGAI Agent: Hello. You've reached the Pretty Good AI test line. Goodbye.
+Patient Bot: Hi. Um, this is Maria Rodriguez. Alright. Thanks for your help. I guess I'll wait for the clinic to get back to me then. Have a good day. Goodbye.

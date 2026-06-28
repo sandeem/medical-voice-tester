@@ -1,0 +1,19 @@
+Scenario: Correct DOB on File
+Call ID: 019f0ba0-2f34-7000-8e67-094f9679762f
+Date: 2026-06-27T20:29:58.580797
+Duration: unknowns
+------------------------------------------------------------
+Patient Bot: Hi. I'm calling because I think there's an error with my date of birth on file.
+PGAI Agent: Thanks for calling Pivot Point Orthopaedics. Part of Pretty Good AI. Am I speaking with David?
+Patient Bot: Yes. This is David Chen. Thanks for asking. I just wanted to double check my date of birth in your system. It looks like it might be wrong
+PGAI Agent: Please tell me your date of birth.
+Patient Bot: Sure. The date of birth you have on file is July 4th, 2000, but actually it's January 8th 19 85, Could you please update that for me?
+PGAI Agent: I can't update your date of birth directly. But I can let our clinic support team know about the
+Patient Bot: Okay.
+Patient Bot: I understand. Thanks for letting me know. Could you please make sure they get the correct date? January 8th 19 85. It's really important to me that it's updated accurately.
+PGAI Agent: I've documented your request and shared the correct date of birth with our clinic support team. They will review and update your record as soon as possible. You have any other questions or requests, just let me know.
+Patient Bot: Thank you for doing that. I really appreciate it. Just to confirm, my correct date of birth is January 8th 19 85. Right?
+PGAI Agent: That's correct. Your correct date of birth is January 8th. 19 85. The clinic support team will update your record to reflect this.
+Patient Bot: Great. Thank you for confirming that. Really appreciate your help with this. Have a good day.
+PGAI Agent: You're welcome. Have a great day.
+Patient Bot: Thanks again. Bye now. Thanks. Goodbye.
