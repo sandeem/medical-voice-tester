@@ -1,0 +1,25 @@
+Scenario: Cancel Appointment
+Call ID: 019f11a6-082a-7771-a324-c2575cc68c30
+Date: 2026-06-29T00:34:58.493602
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes.
+Patient Bot: Hello. This is the front desk at doctor Smith's office.
+PGAI Agent: Part of Pretty Good AI. Am I speaking with David?
+Patient Bot: Hello. Am I speaking with Maria Rodriguez? Hi. This is Maria Rodriguez. I was hoping to cancel my upcoming appointment. Could you help me with that?
+PGAI Agent: Please provide Maria Rendering as his date of birth so I can look up the appointment.
+Patient Bot: My date of birth is July 22nd 19 90. Also, could you let me know if there's a cancellation fee or policy?
+PGAI Agent: Just to confirm, I have your name as Maria Rodriguez, and your date of birth is July 22nd 19 90. Is that correct? If so, I'll check your appointment details right away.
+Patient Bot: Yes. That's correct. Thank you.
+PGAI Agent: Would you like to use your phone number to look up your record? If so, please provide the number you have on file with us. If you're not sure, I can confirm your name and date of birth again. Just let me know.
+Patient Bot: My phone number on file is 5 5 5 1 2 3 4.
+PGAI Agent: Could you please provide the full 10 digit phone number you have on file? Including the area code?
+Patient Bot: Sure. It's 5 5 5 1 2 3 4 5.
+PGAI Agent: I need the full 10 digit phone number including the area code. Could you please spell out all 10 digits for me?
+Patient Bot: I apologize for that. My phone number is 5 5 5 1 2 3 4 5 6 7.
+PGAI Agent: And your phone number is 5 5 5 1 2 3 4 5 6 7. And your date of birth is July 22nd 19 90. Is that correct?
+Patient Bot: Yes. That's correct. Could you please confirm if there is any cancellation fee or policy I should be aware of when canceling my appointment?
+PGAI Agent: To our patient support team for help with Maria Rodriguez's appointment. Please stay on the line. Connecting you to a representative. Please
+Patient Bot: Thank you. I will wait on the line. Thank you.
+PGAI Agent: Hello. You've reached the Pretty Good AI test line. Goodbye.
+Patient Bot: Goodbye.

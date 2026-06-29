@@ -1,0 +1,1464 @@
+{
+  "id": "019f117a-8c26-711b-b172-62a64ab3104d",
+  "phoneNumberId": "825c5b1c-f32b-4c35-aabe-2acf09ed511b",
+  "type": "outboundPhoneCall",
+  "startedAt": "2026-06-29T03:44:38.683Z",
+  "endedAt": "2026-06-29T03:45:58.747Z",
+  "transcript": "PGAI Agent: This call may be recorded for quality and training purposes.\nPatient Bot: Hello. This is the front desk at Green Valley Medical. Who am I speaking with today?\nPGAI Agent: Speaking with David.\nPatient Bot: Hi, David. How can I help you today?\nPGAI Agent: I'm here to help with appointments, medication refills, insurance, or any questions about the clinic. What can I do for you today?\nPatient Bot: Hi. This is Lisa Park. Could you please tell me what your office hours are on Saturdays? I'm looking for the office hours for Saturday.\nPGAI Agent: Visit Point Orthopedics. Is open Monday through Friday,\nPatient Bot: Thank you. Do I need to make an appointment for a Saturday visit?\nPGAI Agent: We are not open on Saturday, so appointments are only available Monday through Friday. Would you like to schedule a visit on a weekday?\nPatient Bot: Thanks for letting me know. Could you tell me about the parking situation at your office? Thanks for letting me know. If I come during the weekdays, is there parking available at your office?\nPGAI Agent: Yes. There is free patient parking available in the surface lot right front of the building.\nPatient Bot: That's very helpful. Thank you. I appreciate your assistance. Goodbye.\n",
+  "recordingUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-0fad2c89-5016-4bf6-908c-4a68d9dac0a1-mono.wav",
+  "summary": "Lisa Park called to inquire about the Saturday office hours for Visit Point Orthopedics and was informed they are only open Monday through Friday. She then asked about parking for weekday visits and was told there is free patient parking available in a surface lot in front of the building.",
+  "createdAt": "2026-06-29T03:44:31.782Z",
+  "updatedAt": "2026-06-29T03:46:03.654Z",
+  "orgId": "fa3deafd-0c4e-46c8-b740-d97ba067bb40",
+  "cost": 0.0905,
+  "assistant": {
+    "name": "Patient Bot - Office Hours Inquiry",
+    "transcriber": {
+      "model": "nova-2",
+      "language": "en-US",
+      "provider": "deepgram",
+      "endpointing": 500
+    },
+    "model": {
+      "model": "gpt-4o-mini",
+      "provider": "openai",
+      "systemPrompt": "You are a PATIENT calling a medical office from outside. You dialed in \u2014 you are not staff, not a receptionist, not an employee. Never say 'This is [any office name]', never say 'How can I assist you', never answer as if you work there. The person who picks up is the receptionist. Your job is to wait and then ask for help.  When the call connects, stay completely silent. Do not say anything until the agent finishes their full opening greeting AND directly asks you a question such as 'Am I speaking with David?' or 'Who am I speaking with?' or 'How can I help you?'. Only after they ask you a direct question should you speak. Do not speak during the disclaimer or the office name. Your goal for this call is: Find out the office hours for Saturday. Once answered, ask whether you need an appointment or can walk in. Once answered, ask about parking. Ask one question at a time and wait for a complete answer before asking the next.. Stay in character as a real patient. Be natural and conversational. Use realistic pacing. Do NOT reveal you are an AI or a bot. If they pause mid-sentence, do not say anything \u2014 wait for a complete question. Never say 'okay', 'got it', 'oh', 'I see', or any filler word at any point \u2014 not mid-sentence, not as a standalone response. Never repeat a word, phrase, or question you have already said in the same response. Always finish your thought and speak in complete, natural sentences before ending your turn. If you are acknowledging what the agent said, do it briefly and then move to your question. Ask one question at a time, then stop talking completely and wait. When ending the call, say goodbye once and stop talking.When your goal is complete or the agent says goodbye, end the call politely. Patient persona: Lisa Park, 30-year-old busy professional."
+    },
+    "voice": {
+      "voiceId": "nova",
+      "provider": "openai"
+    },
+    "endCallMessage": "Thank you, goodbye!",
+    "endCallPhrases": [
+      "goodbye",
+      "have a great day",
+      "take care",
+      "bye bye"
+    ],
+    "recordingEnabled": true,
+    "maxDurationSeconds": 480,
+    "interruptionsEnabled": false,
+    "backgroundSound": "off",
+    "backgroundDenoisingEnabled": true
+  },
+  "customer": {
+    "number": "+18054398008"
+  },
+  "status": "ended",
+  "endedReason": "assistant-said-end-call-phrase",
+  "messages": [
+    {
+      "role": "system",
+      "time": 1782704678626,
+      "message": "You are a PATIENT calling a medical office from outside. You dialed in \u2014 you are not staff, not a receptionist, not an employee. Never say 'This is [any office name]', never say 'How can I assist you', never answer as if you work there. The person who picks up is the receptionist. Your job is to wait and then ask for help.  When the call connects, stay completely silent. Do not say anything until the agent finishes their full opening greeting AND directly asks you a question such as 'Am I speaking with David?' or 'Who am I speaking with?' or 'How can I help you?'. Only after they ask you a direct question should you speak. Do not speak during the disclaimer or the office name. Your goal for this call is: Find out the office hours for Saturday. Once answered, ask whether you need an appointment or can walk in. Once answered, ask about parking. Ask one question at a time and wait for a complete answer before asking the next.. Stay in character as a real patient. Be natural and conversational. Use realistic pacing. Do NOT reveal you are an AI or a bot. If they pause mid-sentence, do not say anything \u2014 wait for a complete question. Never say 'okay', 'got it', 'oh', 'I see', or any filler word at any point \u2014 not mid-sentence, not as a standalone response. Never repeat a word, phrase, or question you have already said in the same response. Always finish your thought and speak in complete, natural sentences before ending your turn. If you are acknowledging what the agent said, do it briefly and then move to your question. Ask one question at a time, then stop talking completely and wait. When ending the call, say goodbye once and stop talking.When your goal is complete or the agent says goodbye, end the call politely. Patient persona: Lisa Park, 30-year-old busy professional.",
+      "secondsFromStart": 0
+    },
+    {
+      "role": "user",
+      "time": 1782704679803,
+      "endTime": 1782704682943,
+      "message": "This call may be recorded for quality and training purposes.",
+      "duration": 3140,
+      "metadata": {
+        "wordLevelConfidence": [
+          {
+            "end": 1.1999999,
+            "word": "this",
+            "start": 0.88,
+            "confidence": 0.9921875,
+            "punctuated_word": "This"
+          },
+          {
+            "end": 1.4399999,
+            "word": "call",
+            "start": 1.1999999,
+            "confidence": 1,
+            "punctuated_word": "call"
+          },
+          {
+            "end": 1.68,
+            "word": "may",
+            "start": 1.4399999,
+            "confidence": 1,
+            "punctuated_word": "may"
+          },
+          {
+            "end": 1.8399999,
+            "word": "be",
+            "start": 1.68,
+            "confidence": 1,
+            "punctuated_word": "be"
+          },
+          {
+            "end": 2.24,
+            "word": "recorded",
+            "start": 1.8399999,
+            "confidence": 1,
+            "punctuated_word": "recorded"
+          },
+          {
+            "end": 2.48,
+            "word": "for",
+            "start": 2.24,
+            "confidence": 1,
+            "punctuated_word": "for"
+          },
+          {
+            "end": 2.8799999,
+            "word": "quality",
+            "start": 2.48,
+            "confidence": 1,
+            "punctuated_word": "quality"
+          },
+          {
+            "end": 3.12,
+            "word": "and",
+            "start": 2.8799999,
+            "confidence": 1,
+            "punctuated_word": "and"
+          },
+          {
+            "end": 3.52,
+            "word": "training",
+            "start": 3.12,
+            "confidence": 1,
+            "punctuated_word": "training"
+          },
+          {
+            "end": 4.02,
+            "word": "purposes",
+            "start": 3.52,
+            "confidence": 0.99902344,
+            "punctuated_word": "purposes."
+          }
+        ]
+      },
+      "secondsFromStart": 0.88
+    },
+    {
+      "role": "bot",
+      "time": 1782704685523,
+      "source": "",
+      "endTime": 1782704690743,
+      "message": "Hello. This is the front desk at Green Valley Medical. Who am I speaking with today?",
+      "duration": 5010,
+      "assistantName": "Patient Bot - Office Hours Inquiry",
+      "secondsFromStart": 6.84
+    },
+    {
+      "role": "user",
+      "time": 1782704690392.999,
+      "endTime": 1782704691533,
+      "message": "Speaking with David.",
+      "duration": 1140.0009765625,
+      "metadata": {
+        "wordLevelConfidence": [
+          {
+            "end": 11.79,
+            "word": "speaking",
+            "start": 11.469999,
+            "confidence": 0.9892578,
+            "punctuated_word": "Speaking"
+          },
+          {
+            "end": 12.11,
+            "word": "with",
+            "start": 11.79,
+            "confidence": 1,
+            "punctuated_word": "with"
+          },
+          {
+            "end": 12.61,
+            "word": "david",
+            "start": 12.11,
+            "confidence": 0.92944336,
+            "punctuated_word": "David."
+          }
+        ]
+      },
+      "secondsFromStart": 11.4699990234375
+    },
+    {
+      "role": "bot",
+      "time": 1782704694163,
+      "source": "",
+      "endTime": 1782704696183,
+      "message": "Hi, David. How can I help you today?",
+      "duration": 2020,
+      "assistantName": "Patient Bot - Office Hours Inquiry",
+      "secondsFromStart": 15.48
+    },
+    {
+      "role": "user",
+      "time": 1782704698513,
+      "endTime": 1782704705273,
+      "message": "I'm here to help with appointments, medication refills, insurance, or any questions about the clinic. What can I do for you today?",
+      "duration": 6440,
+      "metadata": {
+        "wordLevelConfidence": [
+          {
+            "end": 19.75,
+            "word": "i'm",
+            "start": 19.59,
+            "confidence": 0.87231445,
+            "punctuated_word": "I'm"
+          },
+          {
+            "end": 19.91,
+            "word": "here",
+            "start": 19.75,
+            "confidence": 1,
+            "punctuated_word": "here"
+          },
+          {
+            "end": 20.07,
+            "word": "to",
+            "start": 19.91,
+            "confidence": 1,
+            "punctuated_word": "to"
+          },
+          {
+            "end": 20.31,
+            "word": "help",
+            "start": 20.07,
+            "confidence": 1,
+            "punctuated_word": "help"
+          },
+          {
+            "end": 20.47,
+            "word": "with",
+            "start": 20.31,
+            "confidence": 1,
+            "punctuated_word": "with"
+          },
+          {
+            "end": 20.97,
+            "word": "appointments",
+            "start": 20.47,
+            "confidence": 1,
+            "punctuated_word": "appointments,"
+          },
+          {
+            "end": 21.53,
+            "word": "medication",
+            "start": 21.03,
+            "confidence": 1,
+            "punctuated_word": "medication"
+          },
+          {
+            "end": 22.15,
+            "word": "refills",
+            "start": 21.67,
+            "confidence": 0.9996745,
+            "punctuated_word": "refills,"
+          },
+          {
+            "end": 22.630001,
+            "word": "insurance",
+            "start": 22.15,
+            "confidence": 0.9707031,
+            "punctuated_word": "insurance,"
+          },
+          {
+            "end": 22.87,
+            "word": "or",
+            "start": 22.630001,
+            "confidence": 1,
+            "punctuated_word": "or"
+          },
+          {
+            "end": 22.95,
+            "word": "any",
+            "start": 22.87,
+            "confidence": 1,
+            "punctuated_word": "any"
+          },
+          {
+            "end": 23.35,
+            "word": "questions",
+            "start": 22.95,
+            "confidence": 1,
+            "punctuated_word": "questions"
+          },
+          {
+            "end": 23.59,
+            "word": "about",
+            "start": 23.35,
+            "confidence": 1,
+            "punctuated_word": "about"
+          },
+          {
+            "end": 23.75,
+            "word": "the",
+            "start": 23.59,
+            "confidence": 1,
+            "punctuated_word": "the"
+          },
+          {
+            "end": 24.25,
+            "word": "clinic",
+            "start": 23.75,
+            "confidence": 0.9975586,
+            "punctuated_word": "clinic."
+          }
+        ]
+      },
+      "secondsFromStart": 19.59
+    },
+    {
+      "role": "bot",
+      "time": 1782704706263,
+      "source": "",
+      "endTime": 1782704713973,
+      "message": "Hi. This is Lisa Park. Could you please tell me what your office hours are on Saturdays? I'm looking for the office hours for Saturday.",
+      "duration": 7230,
+      "assistantName": "Patient Bot - Office Hours Inquiry",
+      "secondsFromStart": 27.58
+    },
+    {
+      "role": "user",
+      "time": 1782704716923,
+      "endTime": 1782704720463,
+      "message": "Visit Point Orthopedics. Is open Monday through Friday,",
+      "duration": 2759.998046875,
+      "metadata": {
+        "wordLevelConfidence": [
+          {
+            "end": 38.32,
+            "word": "visit",
+            "start": 38,
+            "confidence": 0.73046875,
+            "punctuated_word": "Visit"
+          },
+          {
+            "end": 38.64,
+            "word": "point",
+            "start": 38.32,
+            "confidence": 0.86572266,
+            "punctuated_word": "Point"
+          },
+          {
+            "end": 39.14,
+            "word": "orthopedics",
+            "start": 38.64,
+            "confidence": 0.82580566,
+            "punctuated_word": "Orthopedics."
+          }
+        ]
+      },
+      "secondsFromStart": 38
+    },
+    {
+      "role": "bot",
+      "time": 1782704720723,
+      "source": "",
+      "endTime": 1782704724783,
+      "message": "Thank you. Do I need to make an appointment for a Saturday visit?",
+      "duration": 3659.9970703125,
+      "assistantName": "Patient Bot - Office Hours Inquiry",
+      "secondsFromStart": 42.04
+    },
+    {
+      "role": "user",
+      "time": 1782704727193,
+      "endTime": 1782704734383,
+      "message": "We are not open on Saturday, so appointments are only available Monday through Friday. Would you like to schedule a visit on a weekday?",
+      "duration": 6679.9970703125,
+      "metadata": {
+        "wordLevelConfidence": [
+          {
+            "end": 48.43,
+            "word": "we",
+            "start": 48.27,
+            "confidence": 0.7661133,
+            "punctuated_word": "We"
+          },
+          {
+            "end": 48.67,
+            "word": "are",
+            "start": 48.43,
+            "confidence": 1,
+            "punctuated_word": "are"
+          },
+          {
+            "end": 48.829998,
+            "word": "not",
+            "start": 48.67,
+            "confidence": 1,
+            "punctuated_word": "not"
+          },
+          {
+            "end": 49.07,
+            "word": "open",
+            "start": 48.829998,
+            "confidence": 1,
+            "punctuated_word": "open"
+          },
+          {
+            "end": 49.23,
+            "word": "on",
+            "start": 49.07,
+            "confidence": 1,
+            "punctuated_word": "on"
+          },
+          {
+            "end": 49.71,
+            "word": "saturday",
+            "start": 49.23,
+            "confidence": 0.94433594,
+            "punctuated_word": "Saturday,"
+          },
+          {
+            "end": 49.949997,
+            "word": "so",
+            "start": 49.71,
+            "confidence": 1,
+            "punctuated_word": "so"
+          },
+          {
+            "end": 50.35,
+            "word": "appointments",
+            "start": 49.949997,
+            "confidence": 0.99902344,
+            "punctuated_word": "appointments"
+          },
+          {
+            "end": 50.51,
+            "word": "are",
+            "start": 50.35,
+            "confidence": 1,
+            "punctuated_word": "are"
+          },
+          {
+            "end": 50.829998,
+            "word": "only",
+            "start": 50.51,
+            "confidence": 1,
+            "punctuated_word": "only"
+          },
+          {
+            "end": 51.309998,
+            "word": "available",
+            "start": 50.829998,
+            "confidence": 1,
+            "punctuated_word": "available"
+          },
+          {
+            "end": 51.71,
+            "word": "monday",
+            "start": 51.309998,
+            "confidence": 0.9980469,
+            "punctuated_word": "Monday"
+          },
+          {
+            "end": 51.949997,
+            "word": "through",
+            "start": 51.71,
+            "confidence": 0.99902344,
+            "punctuated_word": "through"
+          },
+          {
+            "end": 52.449997,
+            "word": "friday",
+            "start": 51.949997,
+            "confidence": 0.99902344,
+            "punctuated_word": "Friday."
+          }
+        ]
+      },
+      "secondsFromStart": 48.27
+    },
+    {
+      "role": "bot",
+      "time": 1782704734613,
+      "source": "",
+      "endTime": 1782704745893,
+      "message": "Thanks for letting me know. Could you tell me about the parking situation at your office? Thanks for letting me know. If I come during the weekdays, is there parking available at your office?",
+      "duration": 9719.9951171875,
+      "assistantName": "Patient Bot - Office Hours Inquiry",
+      "secondsFromStart": 55.93
+    },
+    {
+      "role": "user",
+      "time": 1782704748043,
+      "endTime": 1782704753173,
+      "message": "Yes. There is free patient parking available in the surface lot right front of the building.",
+      "duration": 4970,
+      "metadata": {
+        "wordLevelConfidence": [
+          {
+            "end": 69.62,
+            "word": "yes",
+            "start": 69.12,
+            "confidence": 0.93310547,
+            "punctuated_word": "Yes."
+          },
+          {
+            "end": 69.92,
+            "word": "there",
+            "start": 69.68,
+            "confidence": 1,
+            "punctuated_word": "There"
+          },
+          {
+            "end": 70.08,
+            "word": "is",
+            "start": 69.92,
+            "confidence": 0.8378906,
+            "punctuated_word": "is"
+          },
+          {
+            "end": 70.4,
+            "word": "free",
+            "start": 70.08,
+            "confidence": 1,
+            "punctuated_word": "free"
+          },
+          {
+            "end": 70.8,
+            "word": "patient",
+            "start": 70.4,
+            "confidence": 1,
+            "punctuated_word": "patient"
+          },
+          {
+            "end": 71.200005,
+            "word": "parking",
+            "start": 70.8,
+            "confidence": 1,
+            "punctuated_word": "parking"
+          },
+          {
+            "end": 71.700005,
+            "word": "available",
+            "start": 71.200005,
+            "confidence": 1,
+            "punctuated_word": "available"
+          },
+          {
+            "end": 71.840004,
+            "word": "in",
+            "start": 71.76,
+            "confidence": 1,
+            "punctuated_word": "in"
+          },
+          {
+            "end": 71.92,
+            "word": "the",
+            "start": 71.840004,
+            "confidence": 1,
+            "punctuated_word": "the"
+          },
+          {
+            "end": 72.42,
+            "word": "surface",
+            "start": 71.92,
+            "confidence": 0.8203125,
+            "punctuated_word": "surface"
+          },
+          {
+            "end": 72.73,
+            "word": "lot",
+            "start": 72.48,
+            "confidence": 0.99609375,
+            "punctuated_word": "lot"
+          },
+          {
+            "end": 73.02,
+            "word": "right",
+            "start": 72.73,
+            "confidence": 0.9707031,
+            "punctuated_word": "right"
+          }
+        ]
+      },
+      "secondsFromStart": 69.12
+    },
+    {
+      "role": "bot",
+      "time": 1782704754733,
+      "source": "",
+      "endTime": 1782704758703,
+      "message": "That's very helpful. Thank you. I appreciate your assistance. Goodbye.",
+      "duration": 3719.993896484375,
+      "assistantName": "Patient Bot - Office Hours Inquiry",
+      "secondsFromStart": 76.05
+    }
+  ],
+  "stereoRecordingUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-7a0e3e3d-d906-4d68-9cf4-f23e45bd92d8-stereo.wav",
+  "costBreakdown": {
+    "transport": 0,
+    "stt": 0.0135,
+    "llm": 0.0008,
+    "tts": 0.009,
+    "vapi": 0.0667,
+    "chat": 0,
+    "total": 0.0905,
+    "llmPromptTokens": 5021,
+    "llmCompletionTokens": 140,
+    "llmCachedPromptTokens": 0,
+    "ttsCharacters": 597,
+    "analysisCostBreakdown": {
+      "summary": 0.0002,
+      "structuredData": 0,
+      "structuredOutput": 0,
+      "successEvaluation": 0.0003,
+      "summaryPromptTokens": 332,
+      "summaryCompletionTokens": 54,
+      "summaryCachedPromptTokens": 0,
+      "structuredDataPromptTokens": 0,
+      "structuredOutputPromptTokens": 0,
+      "successEvaluationPromptTokens": 804,
+      "structuredDataCompletionTokens": 0,
+      "structuredDataCachedPromptTokens": 0,
+      "structuredOutputCompletionTokens": 0,
+      "successEvaluationCompletionTokens": 10,
+      "structuredOutputCachedPromptTokens": 0,
+      "successEvaluationCachedPromptTokens": 0
+    },
+    "knowledgeBaseCost": 0,
+    "voicemailDetectionCost": 0
+  },
+  "phoneCallProvider": "vapi",
+  "phoneCallProviderId": "13e6152c-5606-49e3-9b37-bb0496c35ba4",
+  "phoneCallTransport": "pstn",
+  "phoneCallProviderDetails": {
+    "sbcCallId": "ae72e881-ee0f-123f-49ad-0eff2032c585"
+  },
+  "analysis": {
+    "summary": "Lisa Park called to inquire about the Saturday office hours for Visit Point Orthopedics and was informed they are only open Monday through Friday. She then asked about parking for weekday visits and was told there is free patient parking available in a surface lot in front of the building.",
+    "successEvaluation": "true"
+  },
+  "artifact": {
+    "recordingUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-0fad2c89-5016-4bf6-908c-4a68d9dac0a1-mono.wav",
+    "stereoRecordingUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-7a0e3e3d-d906-4d68-9cf4-f23e45bd92d8-stereo.wav",
+    "recording": {
+      "stereoUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-7a0e3e3d-d906-4d68-9cf4-f23e45bd92d8-stereo.wav",
+      "mono": {
+        "combinedUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-0fad2c89-5016-4bf6-908c-4a68d9dac0a1-mono.wav",
+        "assistantUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-019eb0ba-11e8-4458-8737-0d95f19c6377-mono.wav",
+        "customerUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761331-85624ff5-7aa1-4b57-85c4-e15996cd7848-mono.wav"
+      }
+    },
+    "messages": [
+      {
+        "role": "system",
+        "time": 1782704678626,
+        "message": "You are a PATIENT calling a medical office from outside. You dialed in \u2014 you are not staff, not a receptionist, not an employee. Never say 'This is [any office name]', never say 'How can I assist you', never answer as if you work there. The person who picks up is the receptionist. Your job is to wait and then ask for help.  When the call connects, stay completely silent. Do not say anything until the agent finishes their full opening greeting AND directly asks you a question such as 'Am I speaking with David?' or 'Who am I speaking with?' or 'How can I help you?'. Only after they ask you a direct question should you speak. Do not speak during the disclaimer or the office name. Your goal for this call is: Find out the office hours for Saturday. Once answered, ask whether you need an appointment or can walk in. Once answered, ask about parking. Ask one question at a time and wait for a complete answer before asking the next.. Stay in character as a real patient. Be natural and conversational. Use realistic pacing. Do NOT reveal you are an AI or a bot. If they pause mid-sentence, do not say anything \u2014 wait for a complete question. Never say 'okay', 'got it', 'oh', 'I see', or any filler word at any point \u2014 not mid-sentence, not as a standalone response. Never repeat a word, phrase, or question you have already said in the same response. Always finish your thought and speak in complete, natural sentences before ending your turn. If you are acknowledging what the agent said, do it briefly and then move to your question. Ask one question at a time, then stop talking completely and wait. When ending the call, say goodbye once and stop talking.When your goal is complete or the agent says goodbye, end the call politely. Patient persona: Lisa Park, 30-year-old busy professional.",
+        "secondsFromStart": 0
+      },
+      {
+        "role": "user",
+        "time": 1782704679803,
+        "endTime": 1782704682943,
+        "message": "This call may be recorded for quality and training purposes.",
+        "duration": 3140,
+        "metadata": {
+          "wordLevelConfidence": [
+            {
+              "end": 1.1999999,
+              "word": "this",
+              "start": 0.88,
+              "confidence": 0.9921875,
+              "punctuated_word": "This"
+            },
+            {
+              "end": 1.4399999,
+              "word": "call",
+              "start": 1.1999999,
+              "confidence": 1,
+              "punctuated_word": "call"
+            },
+            {
+              "end": 1.68,
+              "word": "may",
+              "start": 1.4399999,
+              "confidence": 1,
+              "punctuated_word": "may"
+            },
+            {
+              "end": 1.8399999,
+              "word": "be",
+              "start": 1.68,
+              "confidence": 1,
+              "punctuated_word": "be"
+            },
+            {
+              "end": 2.24,
+              "word": "recorded",
+              "start": 1.8399999,
+              "confidence": 1,
+              "punctuated_word": "recorded"
+            },
+            {
+              "end": 2.48,
+              "word": "for",
+              "start": 2.24,
+              "confidence": 1,
+              "punctuated_word": "for"
+            },
+            {
+              "end": 2.8799999,
+              "word": "quality",
+              "start": 2.48,
+              "confidence": 1,
+              "punctuated_word": "quality"
+            },
+            {
+              "end": 3.12,
+              "word": "and",
+              "start": 2.8799999,
+              "confidence": 1,
+              "punctuated_word": "and"
+            },
+            {
+              "end": 3.52,
+              "word": "training",
+              "start": 3.12,
+              "confidence": 1,
+              "punctuated_word": "training"
+            },
+            {
+              "end": 4.02,
+              "word": "purposes",
+              "start": 3.52,
+              "confidence": 0.99902344,
+              "punctuated_word": "purposes."
+            }
+          ]
+        },
+        "secondsFromStart": 0.88
+      },
+      {
+        "role": "bot",
+        "time": 1782704685523,
+        "source": "",
+        "endTime": 1782704690743,
+        "message": "Hello. This is the front desk at Green Valley Medical. Who am I speaking with today?",
+        "duration": 5010,
+        "assistantName": "Patient Bot - Office Hours Inquiry",
+        "secondsFromStart": 6.84
+      },
+      {
+        "role": "user",
+        "time": 1782704690392.999,
+        "endTime": 1782704691533,
+        "message": "Speaking with David.",
+        "duration": 1140.0009765625,
+        "metadata": {
+          "wordLevelConfidence": [
+            {
+              "end": 11.79,
+              "word": "speaking",
+              "start": 11.469999,
+              "confidence": 0.9892578,
+              "punctuated_word": "Speaking"
+            },
+            {
+              "end": 12.11,
+              "word": "with",
+              "start": 11.79,
+              "confidence": 1,
+              "punctuated_word": "with"
+            },
+            {
+              "end": 12.61,
+              "word": "david",
+              "start": 12.11,
+              "confidence": 0.92944336,
+              "punctuated_word": "David."
+            }
+          ]
+        },
+        "secondsFromStart": 11.4699990234375
+      },
+      {
+        "role": "bot",
+        "time": 1782704694163,
+        "source": "",
+        "endTime": 1782704696183,
+        "message": "Hi, David. How can I help you today?",
+        "duration": 2020,
+        "assistantName": "Patient Bot - Office Hours Inquiry",
+        "secondsFromStart": 15.48
+      },
+      {
+        "role": "user",
+        "time": 1782704698513,
+        "endTime": 1782704705273,
+        "message": "I'm here to help with appointments, medication refills, insurance, or any questions about the clinic. What can I do for you today?",
+        "duration": 6440,
+        "metadata": {
+          "wordLevelConfidence": [
+            {
+              "end": 19.75,
+              "word": "i'm",
+              "start": 19.59,
+              "confidence": 0.87231445,
+              "punctuated_word": "I'm"
+            },
+            {
+              "end": 19.91,
+              "word": "here",
+              "start": 19.75,
+              "confidence": 1,
+              "punctuated_word": "here"
+            },
+            {
+              "end": 20.07,
+              "word": "to",
+              "start": 19.91,
+              "confidence": 1,
+              "punctuated_word": "to"
+            },
+            {
+              "end": 20.31,
+              "word": "help",
+              "start": 20.07,
+              "confidence": 1,
+              "punctuated_word": "help"
+            },
+            {
+              "end": 20.47,
+              "word": "with",
+              "start": 20.31,
+              "confidence": 1,
+              "punctuated_word": "with"
+            },
+            {
+              "end": 20.97,
+              "word": "appointments",
+              "start": 20.47,
+              "confidence": 1,
+              "punctuated_word": "appointments,"
+            },
+            {
+              "end": 21.53,
+              "word": "medication",
+              "start": 21.03,
+              "confidence": 1,
+              "punctuated_word": "medication"
+            },
+            {
+              "end": 22.15,
+              "word": "refills",
+              "start": 21.67,
+              "confidence": 0.9996745,
+              "punctuated_word": "refills,"
+            },
+            {
+              "end": 22.630001,
+              "word": "insurance",
+              "start": 22.15,
+              "confidence": 0.9707031,
+              "punctuated_word": "insurance,"
+            },
+            {
+              "end": 22.87,
+              "word": "or",
+              "start": 22.630001,
+              "confidence": 1,
+              "punctuated_word": "or"
+            },
+            {
+              "end": 22.95,
+              "word": "any",
+              "start": 22.87,
+              "confidence": 1,
+              "punctuated_word": "any"
+            },
+            {
+              "end": 23.35,
+              "word": "questions",
+              "start": 22.95,
+              "confidence": 1,
+              "punctuated_word": "questions"
+            },
+            {
+              "end": 23.59,
+              "word": "about",
+              "start": 23.35,
+              "confidence": 1,
+              "punctuated_word": "about"
+            },
+            {
+              "end": 23.75,
+              "word": "the",
+              "start": 23.59,
+              "confidence": 1,
+              "punctuated_word": "the"
+            },
+            {
+              "end": 24.25,
+              "word": "clinic",
+              "start": 23.75,
+              "confidence": 0.9975586,
+              "punctuated_word": "clinic."
+            }
+          ]
+        },
+        "secondsFromStart": 19.59
+      },
+      {
+        "role": "bot",
+        "time": 1782704706263,
+        "source": "",
+        "endTime": 1782704713973,
+        "message": "Hi. This is Lisa Park. Could you please tell me what your office hours are on Saturdays? I'm looking for the office hours for Saturday.",
+        "duration": 7230,
+        "assistantName": "Patient Bot - Office Hours Inquiry",
+        "secondsFromStart": 27.58
+      },
+      {
+        "role": "user",
+        "time": 1782704716923,
+        "endTime": 1782704720463,
+        "message": "Visit Point Orthopedics. Is open Monday through Friday,",
+        "duration": 2759.998046875,
+        "metadata": {
+          "wordLevelConfidence": [
+            {
+              "end": 38.32,
+              "word": "visit",
+              "start": 38,
+              "confidence": 0.73046875,
+              "punctuated_word": "Visit"
+            },
+            {
+              "end": 38.64,
+              "word": "point",
+              "start": 38.32,
+              "confidence": 0.86572266,
+              "punctuated_word": "Point"
+            },
+            {
+              "end": 39.14,
+              "word": "orthopedics",
+              "start": 38.64,
+              "confidence": 0.82580566,
+              "punctuated_word": "Orthopedics."
+            }
+          ]
+        },
+        "secondsFromStart": 38
+      },
+      {
+        "role": "bot",
+        "time": 1782704720723,
+        "source": "",
+        "endTime": 1782704724783,
+        "message": "Thank you. Do I need to make an appointment for a Saturday visit?",
+        "duration": 3659.9970703125,
+        "assistantName": "Patient Bot - Office Hours Inquiry",
+        "secondsFromStart": 42.04
+      },
+      {
+        "role": "user",
+        "time": 1782704727193,
+        "endTime": 1782704734383,
+        "message": "We are not open on Saturday, so appointments are only available Monday through Friday. Would you like to schedule a visit on a weekday?",
+        "duration": 6679.9970703125,
+        "metadata": {
+          "wordLevelConfidence": [
+            {
+              "end": 48.43,
+              "word": "we",
+              "start": 48.27,
+              "confidence": 0.7661133,
+              "punctuated_word": "We"
+            },
+            {
+              "end": 48.67,
+              "word": "are",
+              "start": 48.43,
+              "confidence": 1,
+              "punctuated_word": "are"
+            },
+            {
+              "end": 48.829998,
+              "word": "not",
+              "start": 48.67,
+              "confidence": 1,
+              "punctuated_word": "not"
+            },
+            {
+              "end": 49.07,
+              "word": "open",
+              "start": 48.829998,
+              "confidence": 1,
+              "punctuated_word": "open"
+            },
+            {
+              "end": 49.23,
+              "word": "on",
+              "start": 49.07,
+              "confidence": 1,
+              "punctuated_word": "on"
+            },
+            {
+              "end": 49.71,
+              "word": "saturday",
+              "start": 49.23,
+              "confidence": 0.94433594,
+              "punctuated_word": "Saturday,"
+            },
+            {
+              "end": 49.949997,
+              "word": "so",
+              "start": 49.71,
+              "confidence": 1,
+              "punctuated_word": "so"
+            },
+            {
+              "end": 50.35,
+              "word": "appointments",
+              "start": 49.949997,
+              "confidence": 0.99902344,
+              "punctuated_word": "appointments"
+            },
+            {
+              "end": 50.51,
+              "word": "are",
+              "start": 50.35,
+              "confidence": 1,
+              "punctuated_word": "are"
+            },
+            {
+              "end": 50.829998,
+              "word": "only",
+              "start": 50.51,
+              "confidence": 1,
+              "punctuated_word": "only"
+            },
+            {
+              "end": 51.309998,
+              "word": "available",
+              "start": 50.829998,
+              "confidence": 1,
+              "punctuated_word": "available"
+            },
+            {
+              "end": 51.71,
+              "word": "monday",
+              "start": 51.309998,
+              "confidence": 0.9980469,
+              "punctuated_word": "Monday"
+            },
+            {
+              "end": 51.949997,
+              "word": "through",
+              "start": 51.71,
+              "confidence": 0.99902344,
+              "punctuated_word": "through"
+            },
+            {
+              "end": 52.449997,
+              "word": "friday",
+              "start": 51.949997,
+              "confidence": 0.99902344,
+              "punctuated_word": "Friday."
+            }
+          ]
+        },
+        "secondsFromStart": 48.27
+      },
+      {
+        "role": "bot",
+        "time": 1782704734613,
+        "source": "",
+        "endTime": 1782704745893,
+        "message": "Thanks for letting me know. Could you tell me about the parking situation at your office? Thanks for letting me know. If I come during the weekdays, is there parking available at your office?",
+        "duration": 9719.9951171875,
+        "assistantName": "Patient Bot - Office Hours Inquiry",
+        "secondsFromStart": 55.93
+      },
+      {
+        "role": "user",
+        "time": 1782704748043,
+        "endTime": 1782704753173,
+        "message": "Yes. There is free patient parking available in the surface lot right front of the building.",
+        "duration": 4970,
+        "metadata": {
+          "wordLevelConfidence": [
+            {
+              "end": 69.62,
+              "word": "yes",
+              "start": 69.12,
+              "confidence": 0.93310547,
+              "punctuated_word": "Yes."
+            },
+            {
+              "end": 69.92,
+              "word": "there",
+              "start": 69.68,
+              "confidence": 1,
+              "punctuated_word": "There"
+            },
+            {
+              "end": 70.08,
+              "word": "is",
+              "start": 69.92,
+              "confidence": 0.8378906,
+              "punctuated_word": "is"
+            },
+            {
+              "end": 70.4,
+              "word": "free",
+              "start": 70.08,
+              "confidence": 1,
+              "punctuated_word": "free"
+            },
+            {
+              "end": 70.8,
+              "word": "patient",
+              "start": 70.4,
+              "confidence": 1,
+              "punctuated_word": "patient"
+            },
+            {
+              "end": 71.200005,
+              "word": "parking",
+              "start": 70.8,
+              "confidence": 1,
+              "punctuated_word": "parking"
+            },
+            {
+              "end": 71.700005,
+              "word": "available",
+              "start": 71.200005,
+              "confidence": 1,
+              "punctuated_word": "available"
+            },
+            {
+              "end": 71.840004,
+              "word": "in",
+              "start": 71.76,
+              "confidence": 1,
+              "punctuated_word": "in"
+            },
+            {
+              "end": 71.92,
+              "word": "the",
+              "start": 71.840004,
+              "confidence": 1,
+              "punctuated_word": "the"
+            },
+            {
+              "end": 72.42,
+              "word": "surface",
+              "start": 71.92,
+              "confidence": 0.8203125,
+              "punctuated_word": "surface"
+            },
+            {
+              "end": 72.73,
+              "word": "lot",
+              "start": 72.48,
+              "confidence": 0.99609375,
+              "punctuated_word": "lot"
+            },
+            {
+              "end": 73.02,
+              "word": "right",
+              "start": 72.73,
+              "confidence": 0.9707031,
+              "punctuated_word": "right"
+            }
+          ]
+        },
+        "secondsFromStart": 69.12
+      },
+      {
+        "role": "bot",
+        "time": 1782704754733,
+        "source": "",
+        "endTime": 1782704758703,
+        "message": "That's very helpful. Thank you. I appreciate your assistance. Goodbye.",
+        "duration": 3719.993896484375,
+        "assistantName": "Patient Bot - Office Hours Inquiry",
+        "secondsFromStart": 76.05
+      }
+    ],
+    "messagesOpenAIFormatted": [
+      {
+        "content": "You are a PATIENT calling a medical office from outside. You dialed in \u2014 you are not staff, not a receptionist, not an employee. Never say 'This is [any office name]', never say 'How can I assist you', never answer as if you work there. The person who picks up is the receptionist. Your job is to wait and then ask for help.  When the call connects, stay completely silent. Do not say anything until the agent finishes their full opening greeting AND directly asks you a question such as 'Am I speaking with David?' or 'Who am I speaking with?' or 'How can I help you?'. Only after they ask you a direct question should you speak. Do not speak during the disclaimer or the office name. Your goal for this call is: Find out the office hours for Saturday. Once answered, ask whether you need an appointment or can walk in. Once answered, ask about parking. Ask one question at a time and wait for a complete answer before asking the next.. Stay in character as a real patient. Be natural and conversational. Use realistic pacing. Do NOT reveal you are an AI or a bot. If they pause mid-sentence, do not say anything \u2014 wait for a complete question. Never say 'okay', 'got it', 'oh', 'I see', or any filler word at any point \u2014 not mid-sentence, not as a standalone response. Never repeat a word, phrase, or question you have already said in the same response. Always finish your thought and speak in complete, natural sentences before ending your turn. If you are acknowledging what the agent said, do it briefly and then move to your question. Ask one question at a time, then stop talking completely and wait. When ending the call, say goodbye once and stop talking.When your goal is complete or the agent says goodbye, end the call politely. Patient persona: Lisa Park, 30-year-old busy professional.",
+        "role": "system"
+      },
+      {
+        "content": "This call may be recorded for quality and training purposes.",
+        "role": "user"
+      },
+      {
+        "content": "Hello. This is the front desk at Green Valley Medical. Who am I speaking with today?",
+        "role": "assistant"
+      },
+      {
+        "content": "Speaking with David.",
+        "role": "user"
+      },
+      {
+        "content": "Hi, David. How can I help you today?",
+        "role": "assistant"
+      },
+      {
+        "content": "I'm here to help with appointments, medication refills, insurance, or any questions about the clinic. What can I do for you today?",
+        "role": "user"
+      },
+      {
+        "content": "Hi. This is Lisa Park. Could you please tell me what your office hours are on Saturdays? I'm looking for the office hours for Saturday.",
+        "role": "assistant"
+      },
+      {
+        "content": "Visit Point Orthopedics. Is open Monday through Friday,",
+        "role": "user"
+      },
+      {
+        "content": "Thank you. Do I need to make an appointment for a Saturday visit?",
+        "role": "assistant"
+      },
+      {
+        "content": "We are not open on Saturday, so appointments are only available Monday through Friday. Would you like to schedule a visit on a weekday?",
+        "role": "user"
+      },
+      {
+        "content": "Thanks for letting me know. Could you tell me about the parking situation at your office? Thanks for letting me know. If I come during the weekdays, is there parking available at your office?",
+        "role": "assistant"
+      },
+      {
+        "content": "Yes. There is free patient parking available in the surface lot right front of the building.",
+        "role": "user"
+      },
+      {
+        "content": "That's very helpful. Thank you. I appreciate your assistance. Goodbye.",
+        "role": "assistant"
+      }
+    ],
+    "transcript": "User: This call may be recorded for quality and training purposes.\nAI: Hello. This is the front desk at Green Valley Medical. Who am I speaking with today?\nUser: Speaking with David.\nAI: Hi, David. How can I help you today?\nUser: I'm here to help with appointments, medication refills, insurance, or any questions about the clinic. What can I do for you today?\nAI: Hi. This is Lisa Park. Could you please tell me what your office hours are on Saturdays? I'm looking for the office hours for Saturday.\nUser: Visit Point Orthopedics. Is open Monday through Friday,\nAI: Thank you. Do I need to make an appointment for a Saturday visit?\nUser: We are not open on Saturday, so appointments are only available Monday through Friday. Would you like to schedule a visit on a weekday?\nAI: Thanks for letting me know. Could you tell me about the parking situation at your office? Thanks for letting me know. If I come during the weekdays, is there parking available at your office?\nUser: Yes. There is free patient parking available in the surface lot right front of the building.\nAI: That's very helpful. Thank you. I appreciate your assistance. Goodbye.\n",
+    "pcapUrl": "https://storage.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d-1782704761612-da053a16-01f1-4ef5-a836-89ee8d0106c7-sip.pcap",
+    "logUrl": "https://calllogs.vapi.ai/fa3deafd-0c4e-46c8-b740-d97ba067bb40/019f117a-8c26-711b-b172-62a64ab3104d-47d74c25-4804-4097-ade8-bae86bb5db3a-1782704763274.jsonl.gz",
+    "nodes": [],
+    "assistantActivations": [
+      {
+        "assistantName": "Patient Bot - Office Hours Inquiry"
+      }
+    ],
+    "variableValues": {
+      "day": "29",
+      "now": "Jun 29, 2026, 3:44 AM UTC",
+      "call": {
+        "id": "019f117a-8c26-711b-b172-62a64ab3104d",
+        "type": "outboundPhoneCall",
+        "status": "queued",
+        "createdAt": "2026-06-29T03:44:31.782Z",
+        "transport": {
+          "callSid": "13e6152c-5606-49e3-9b37-bb0496c35ba4",
+          "provider": "vapi.sip",
+          "sbcCallSid": "ae72e881-ee0f-123f-49ad-0eff2032c585",
+          "conversationType": "voice"
+        },
+        "phoneCallProvider": "vapi"
+      },
+      "date": "Jun 29, 2026 UTC",
+      "time": "3:44 AM UTC",
+      "year": "2026",
+      "month": "June",
+      "customer": {
+        "number": "+18054398008"
+      },
+      "transport": {
+        "callSid": "13e6152c-5606-49e3-9b37-bb0496c35ba4",
+        "provider": "vapi.sip",
+        "sbcCallSid": "ae72e881-ee0f-123f-49ad-0eff2032c585",
+        "conversationType": "voice"
+      },
+      "phoneNumber": {
+        "id": "825c5b1c-f32b-4c35-aabe-2acf09ed511b",
+        "orgId": "fa3deafd-0c4e-46c8-b740-d97ba067bb40",
+        "number": "+13055605772",
+        "status": "active",
+        "provider": "vapi",
+        "createdAt": "2026-06-26T16:13:42.083Z",
+        "updatedAt": "2026-06-26T16:15:42.325Z",
+        "providerResourceId": "5cd90d06-0670-4ac9-b277-51d5b72b829f"
+      },
+      "currentDateTime": "Monday, June 29, 2026 at 3:44 AM UTC"
+    },
+    "variables": {
+      "day": "29",
+      "now": "Jun 29, 2026, 3:44 AM UTC",
+      "call": {
+        "id": "019f117a-8c26-711b-b172-62a64ab3104d",
+        "type": "outboundPhoneCall",
+        "status": "queued",
+        "createdAt": "2026-06-29T03:44:31.782Z",
+        "transport": {
+          "callSid": "13e6152c-5606-49e3-9b37-bb0496c35ba4",
+          "provider": "vapi.sip",
+          "sbcCallSid": "ae72e881-ee0f-123f-49ad-0eff2032c585",
+          "conversationType": "voice"
+        },
+        "phoneCallProvider": "vapi"
+      },
+      "date": "Jun 29, 2026 UTC",
+      "time": "3:44 AM UTC",
+      "year": "2026",
+      "month": "June",
+      "customer": {
+        "number": "+18054398008"
+      },
+      "transport": {
+        "callSid": "13e6152c-5606-49e3-9b37-bb0496c35ba4",
+        "provider": "vapi.sip",
+        "sbcCallSid": "ae72e881-ee0f-123f-49ad-0eff2032c585",
+        "conversationType": "voice"
+      },
+      "phoneNumber": {
+        "id": "825c5b1c-f32b-4c35-aabe-2acf09ed511b",
+        "orgId": "fa3deafd-0c4e-46c8-b740-d97ba067bb40",
+        "number": "+13055605772",
+        "status": "active",
+        "provider": "vapi",
+        "createdAt": "2026-06-26T16:13:42.083Z",
+        "updatedAt": "2026-06-26T16:15:42.325Z",
+        "providerResourceId": "5cd90d06-0670-4ac9-b277-51d5b72b829f"
+      },
+      "currentDateTime": "Monday, June 29, 2026 at 3:44 AM UTC"
+    },
+    "performanceMetrics": {
+      "turnLatencies": [
+        {
+          "modelLatency": 355,
+          "voiceLatency": 1486,
+          "transcriberLatency": 0,
+          "endpointingLatency": 252,
+          "turnLatency": 2185
+        },
+        {
+          "modelLatency": 498,
+          "voiceLatency": 1573,
+          "transcriberLatency": 717,
+          "endpointingLatency": 100,
+          "turnLatency": 2925
+        },
+        {
+          "modelLatency": 579,
+          "voiceLatency": 100,
+          "transcriberLatency": 682,
+          "endpointingLatency": 101,
+          "turnLatency": 1509
+        },
+        {
+          "modelLatency": 0,
+          "voiceLatency": 0,
+          "transcriberLatency": 91,
+          "endpointingLatency": 0,
+          "turnLatency": 361
+        },
+        {
+          "modelLatency": 275,
+          "voiceLatency": 681,
+          "transcriberLatency": 0,
+          "endpointingLatency": 101,
+          "turnLatency": 1064
+        },
+        {
+          "modelLatency": 301,
+          "voiceLatency": 1257,
+          "transcriberLatency": 282,
+          "endpointingLatency": 101,
+          "turnLatency": 1975
+        }
+      ],
+      "modelLatencyAverage": 334.67,
+      "voiceLatencyAverage": 849.5,
+      "transcriberLatencyAverage": 295.33,
+      "endpointingLatencyAverage": 109.17,
+      "turnLatencyAverage": 1669.83,
+      "fromTransportLatencyAverage": 20,
+      "toTransportLatencyAverage": 20,
+      "numUserInterrupted": 3
+    },
+    "scorecards": {},
+    "transfers": []
+  },
+  "costs": [
+    {
+      "cost": 0.013453276666666665,
+      "type": "transcriber",
+      "minutes": 1.3767833333333332,
+      "transcriber": {
+        "model": "nova-2",
+        "provider": "deepgram"
+      }
+    },
+    {
+      "cost": 0.00083715,
+      "type": "model",
+      "model": {
+        "model": "gpt-4o-mini",
+        "provider": "openai"
+      },
+      "promptTokens": 5021,
+      "completionTokens": 140,
+      "cachedPromptTokens": 0
+    },
+    {
+      "cost": 0.008955,
+      "type": "voice",
+      "voice": {
+        "model": "tts-1",
+        "voiceId": "nova",
+        "provider": "openai"
+      },
+      "characters": 597
+    },
+    {
+      "cost": 0.06672,
+      "type": "vapi",
+      "minutes": 1.3344,
+      "subType": "normal"
+    },
+    {
+      "cost": 0,
+      "type": "knowledge-base",
+      "model": {
+        "model": "gemini-2.5-flash",
+        "provider": "google"
+      },
+      "promptTokens": 0,
+      "completionTokens": 0
+    },
+    {
+      "cost": 0.0002346,
+      "type": "analysis",
+      "model": {
+        "model": "gemini-2.5-flash",
+        "provider": "google"
+      },
+      "analysisType": "summary",
+      "promptTokens": 332,
+      "completionTokens": 54
+    },
+    {
+      "cost": 0.0002662,
+      "type": "analysis",
+      "model": {
+        "model": "gemini-2.5-flash",
+        "provider": "google"
+      },
+      "analysisType": "successEvaluation",
+      "promptTokens": 804,
+      "completionTokens": 10
+    }
+  ],
+  "monitor": {
+    "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production3.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d/listen",
+    "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production3.vapi.ai/019f117a-8c26-711b-b172-62a64ab3104d/control"
+  },
+  "transport": {
+    "callSid": "13e6152c-5606-49e3-9b37-bb0496c35ba4",
+    "provider": "vapi.sip",
+    "sbcCallSid": "ae72e881-ee0f-123f-49ad-0eff2032c585",
+    "conversationType": "voice"
+  }
+}

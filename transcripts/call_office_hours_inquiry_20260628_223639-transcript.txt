@@ -1,0 +1,21 @@
+Scenario: Office Hours Inquiry
+Call ID: 019f113a-8611-7000-8012-6e8a8c81388e
+Date: 2026-06-28T22:36:39.569081
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes.
+Patient Bot: Hello. This is doctor Smith's office. Who am I speaking with?
+PGAI Agent: AI. Am I speaking with David?
+Patient Bot: HiAI. How can I help you today? No. This is the receptionist. How can I help you today?
+PGAI Agent: Thanks for letting me know. I'm here to help with general clinic questions, appointments, patient cases, medication refills, and insurance. Can I assist you with today?
+Patient Bot: Thanks for that. I was wondering, Hi. Um, I was wondering what your office hours are on Saturday?
+PGAI Agent: We're closed on Saturdays. The clinic is open Monday through Friday. Let me know if you need our weekday hours or any
+Patient Bot: Oh, okay. Thanks for letting me know. So, um, if I needed to come in on a weekday, do I need to make an appointment, or can I just walk in?
+PGAI Agent: You'll need to make an appointment before coming in. We don't accept walk ins, Would you like help scheduling an appointment?
+Patient Bot: Thanks. But I just wanted to check the hours 1st. Um, 1 more thing. Is there parking available at your office?
+PGAI Agent: Yes. There is free patient parking available in the surface.
+Patient Bot: Okay. Great. Is the parking free?
+PGAI Agent: Yes. Parking is free for patients.
+Patient Bot: Thanks a lot for all the info. That's really helpful. I appreciate your time. Have a good day.
+PGAI Agent: You're welcome. Have a great day.
+Patient Bot: Goodbye. Goodbye.

@@ -1,0 +1,15 @@
+Scenario: Cancel Appointment
+Call ID: 019f119d-7a21-7000-8294-52fdfda1f384
+Date: 2026-06-29T00:24:55.350513
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes. Calling PivotPoint Orthopedics. Heard of Pretty Good AI? Am I speaking with David?
+Patient Bot: Hi. This is Maria Rodriguez. I need to cancel my upcoming appointment. Could you please help me with that? Also, is there a cancellation fee or policy I should be aware of?
+PGAI Agent: I can help with that. Please provide the full name and date of birth of the patient who's appointment you'd like to cancel.
+Patient Bot: Sure. My full name is Maria Rodriguez, and my date of birth is July 22nd. 19 90. Could you please confirm if you have my appointment details?
+PGAI Agent: I'll need your date of birth to look up your appointment details. Could you share your date of birth, please?
+Patient Bot: I just mentioned it, July 22nd 19 90.
+PGAI Agent: Just to confirm, I have your name as Maria Rodriguez, and your date of birth as July 22nd 19 90. Is that correct? If so, please spell your 1st and last name for me.
+Patient Bot: Yes. That's correct. Could you please tell me the date and time of my upcoming appointment? Yes. That's correct. My 1st name is spelled m a r I a. And my last name is r o d r I g u e z. Could you please tell me the date and time of the appointment you have on file?
+PGAI Agent: I can't proceed further right now, but I can make sure our clinic support team follows up with you. Please hold while I document your request for cancellation and your question about cancellation policy.
+Patient Bot: Thank you for your help. I appreciate you making sure someone follows up with me about the cancellation. Have a good day. Goodbye.

@@ -1,0 +1,17 @@
+Scenario: Office Hours Inquiry
+Call ID: 019f117a-8c26-711b-b172-62a64ab3104d
+Date: 2026-06-28T23:46:05.552428
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes.
+Patient Bot: Hello. This is the front desk at Green Valley Medical. Who am I speaking with today?
+PGAI Agent: Speaking with David.
+Patient Bot: Hi, David. How can I help you today?
+PGAI Agent: I'm here to help with appointments, medication refills, insurance, or any questions about the clinic. What can I do for you today?
+Patient Bot: Hi. This is Lisa Park. Could you please tell me what your office hours are on Saturdays? I'm looking for the office hours for Saturday.
+PGAI Agent: Visit Point Orthopedics. Is open Monday through Friday,
+Patient Bot: Thank you. Do I need to make an appointment for a Saturday visit?
+PGAI Agent: We are not open on Saturday, so appointments are only available Monday through Friday. Would you like to schedule a visit on a weekday?
+Patient Bot: Thanks for letting me know. Could you tell me about the parking situation at your office? Thanks for letting me know. If I come during the weekdays, is there parking available at your office?
+PGAI Agent: Yes. There is free patient parking available in the surface lot right front of the building.
+Patient Bot: That's very helpful. Thank you. I appreciate your assistance. Goodbye.

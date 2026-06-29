@@ -1,0 +1,17 @@
+Scenario: Office Hours Inquiry
+Call ID: 019f118f-3a84-711c-b73f-25ee50f5df9f
+Date: 2026-06-29T00:08:50.921218
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes.
+Patient Bot: Hello. Thank you for calling Jefferson Medical Center. My name is Sarah. Hello. Thank you for calling Jefferson Medical Center. My name is Sarah. How may I help you?
+PGAI Agent: This is PivotPoint Orthopedics. How can I help you today?
+Patient Bot: Hello. Thank you for calling Jefferson Medical Center, Hello. I'm calling to find and name out your office, Sarah Howard. Hello. Saturday.
+PGAI Agent: You've reached PivotPoint Orthopedics. Our clinic is located at 1 2 3 4
+Patient Bot: Hello. Thank you for calling Jefferson Medical Center. My name is Sarah. Okay. I understand. Could you please tell me your office hours for Saturday?
+PGAI Agent: Pivot Point Orthopedics is open Monday through Friday. We are closed on Saturdays. If you need to schedule an appointment or have questions, I can help with that.
+Patient Bot: I see. Do you know if there's another location that might be open on Saturdays?
+PGAI Agent: I don't have information about other locations. Pennant Point Orthopedic only has
+Patient Bot: Okay. Thank you for your help.
+PGAI Agent: You're welcome. If you have any other questions or need to schedule an appointment, just let me know. How about I day?
+Patient Bot: Goodbye.

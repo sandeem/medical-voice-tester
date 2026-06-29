@@ -1,0 +1,15 @@
+Scenario: Office Hours Inquiry
+Call ID: 019f10e9-e62a-7339-9717-ef0bd74e22b0
+Date: 2026-06-28T21:08:16.462853
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes. Thanks for calling PivotPoint Orthopedics, part of Pretty Good AI. Am I speaking with David?
+Patient Bot: Hi. This is Lisa Park. I was wondering if you could tell me what your office hours are on Saturday?
+PGAI Agent: Hi, Lisa. To the point Orthopaedics is open Monday through Friday, but we're closed on Saturdays. Is there anything else I can help you with today?
+Patient Bot: Oh, I see. Thanks for letting me know. Um, if I wanted to come in during the week, do I need to make an appointment? Or can I just walk in?
+PGAI Agent: You'll need to make an appointment to be seen at Pivot Point Orthopedics. We don't accept walk ins. Would you like to schedule a visit?
+Patient Bot: Thanks for explaining that. Um, before I schedule, can you tell me about parking? Is there parking available at or near the office?
+PGAI Agent: Yes. There is free patient parking available in the surface Let me know if you have any other questions or if you'd like to book an appointment.
+Patient Bot: Great. Thanks for the info. I think that's all I needed to know for now. I appreciate your help. Have a good day.
+PGAI Agent: You too. Take care.
+Patient Bot: Thanks. You take care as thanks. Have a good day. Well,
