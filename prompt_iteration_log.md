@@ -1,7 +1,7 @@
 # Prompt Iteration Log — Patient Bot systemPrompt
-**Date:** 2026-06-27
-**File:** `deliverables/main.py` → `build_assistant_config()` → `systemPrompt`
-**Purpose:** Documents every prompt change made during the test session, what triggered it, and what improved.
+**Date:** 2026-06-27 to 2026-06-30
+**File:** `deliverables/main.py` → `build_assistant_config()`
+**Purpose:** Documents every prompt change, config tweak, and code fix made during the test session — what triggered each change, the transcript evidence, and what improved.
 
 ---
 
@@ -16,140 +16,373 @@
     "and realistic pacing. Do NOT reveal you are an AI or a bot. "
     "When your goal is complete or the agent says goodbye, end the call politely. "
     f"Patient persona: {scenario.get('persona', 'A 45-year-old patient named Sarah Johnson')}."
-)
-```
+),
 
-**firstMessage:** `scenario["opening_line"]` (e.g. "Hi there, I need to reschedule an appointment.")
-**endpointing:** Deepgram default (~200ms)
-**maxDurationSeconds:** 300
+"firstMessage": scenario["opening_line"],  # e.g. "Hi there, I need to reschedule..."
+"maxDurationSeconds": 300,
+"interruptionsEnabled": True,              # default — not set explicitly
+"transcriber": {
+    "provider": "deepgram",
+    "model": "nova-2",
+    "language": "en-US",
+    # endpointing: Deepgram default ~200ms
+},
+```
 
 ---
 
-## Iteration 1 — DOB Pushback for Reschedule Appointment
+## Iteration 1 — DOB Pushback (Reschedule Appointment only)
+**Date:** 2026-06-27
 **Triggered by:** `call_reschedule_appointment_20260627_200909-transcript.txt`
-**Observation:** Agent overrode David Chen's DOB to "July 4th 2000" and the bot accepted it silently with "Thanks."
-**Change:** Added a conditional prompt appended only for the Reschedule Appointment scenario.
 
+**What went wrong (transcript evidence):**
+```
+Patient Bot: Uh, sure. It's David Chen. My date of birth is January 8th 19 85.
+PGAI Agent:  Your patient profile has been created. For demo purposes, your date
+             of birth is set as July 4th 2000. How may I help you today?
+Patient Bot: Thanks. So I have an appointment scheduled for this Friday...
+             ↑ bot accepted the wrong DOB silently and moved on
+```
+
+**Root cause:** The bot had no instruction to challenge incorrect data from the agent. It treated the agent's confirmation as correct.
+
+**Fix applied — conditional DOB correction (added at end of systemPrompt):**
 ```python
 + (
-    " If the agent records your date of birth incorrectly, politely correct them and insist it is January 8th 1985."
+    " If the agent records your date of birth incorrectly, politely correct them "
+    "and insist it is January 8th 1985."
     if scenario.get("name") == "Reschedule Appointment"
     else ""
 )
 ```
 
-**Result:** Bot now pushes back when the wrong DOB is recorded. Other scenarios unaffected.
+**Why conditional:** Only the Reschedule Appointment scenario uses a DOB that triggers the demo override. All other scenarios are unaffected.
+
+**Result:** Bot now politely corrects the agent when the wrong DOB is confirmed. Other scenarios unchanged.
 
 ---
 
 ## Iteration 2 — Wait for Agent Greeting Before Speaking
+**Date:** 2026-06-27
 **Triggered by:** `call_cancel_appointment_20260627_205312-transcript.txt`, `call_office_hours_inquiry_20260627_205556-transcript.txt`
-**Observation:** Bot fired its opening line immediately on connect, talking over the agent's disclaimer and greeting. In Cancel Appointment the exchange looked like:
+
+**What went wrong (transcript evidence):**
 ```
 Patient Bot: Hello. I'm calling because I need to cancel an upcoming appointment.
-PGAI Agent: Calling PivotPoint Orthopedics. Part of Pretty Good     ← cut off
-Patient Bot: Hi. This is
-PGAI Agent: Am I speaking with David?
+PGAI Agent:  Calling PivotPoint Orthopedics. Part of Pretty Good    ← cut off mid-greeting
+Patient Bot: Hi. This is                                             ← bot interrupted again
+PGAI Agent:  Am I speaking with David?
 ```
-**Change:** Added wait instruction to `systemPrompt` (line 52):
 
+**Root cause:** `firstMessage` fired the moment the call connected — before the agent had a chance to play its disclaimer and greeting. The bot was talking over the PGAI agent's opening.
+
+**Fixes applied:**
+1. Changed `firstMessage` from `scenario["opening_line"]` to `"Hello."` — neutral filler that doesn't front-load the bot's agenda
+2. Added wait instruction to `systemPrompt`:
 ```python
-" When the call connects, wait for the agent to finish their greeting and answer any question they ask before stating your reason for calling."
+" When the call connects, wait for the agent to finish their greeting and answer "
+"any question they ask before stating your reason for calling."
 ```
 
-**Also changed:** `firstMessage` from `scenario["opening_line"]` to `"Hello."` (neutral filler to stop the bot front-loading its agenda on connect).
-
-**Result:** Partial improvement — bot introduced itself correctly, but still interrupted mid-sentence later in the call.
+**Result:** Partial improvement — bot introduced itself correctly when asked. However, it still interrupted mid-sentence later in calls.
 
 ---
 
-## Iteration 3 — One Question at a Time + No Mid-Sentence Filler
+## Iteration 3 — No Mid-Sentence Filler + One Question at a Time
+**Date:** 2026-06-27
 **Triggered by:** `call_office_hours_inquiry_20260627_212845-transcript.txt`
-**Observation:** Bot dumped all three questions (hours + appointment + parking) in one turn, then interrupted the agent mid-answer with "Okay. Thanks for letting" and "Got it."
+
+**What went wrong (transcript evidence):**
 ```
-Patient Bot: Hi. No. This is Lisa Park. Um, I was wondering if you could tell me your office hours
-             on Saturdays. Also, do I need to make an appointment? Or can I just walk in and,
-             uh, 1 more thing, what's the parking situation like there?
-PGAI Agent: We're open Monday through Friday. But the clinic is closed on Saturdays. You do need
-            to make an appointment,
+Patient Bot: Hi. No. This is Lisa Park. Um, I was wondering if you could tell me
+             your office hours on Saturdays. Also, do I need to make an appointment?
+             Or can I just walk in and, uh, 1 more thing, what's the parking situation?
+             ↑ bot dumped all 3 questions at once
+
+PGAI Agent:  We're open Monday through Friday. But the clinic is closed on Saturdays.
+             You do need to make an appointment,
 Patient Bot: Okay. Thanks for letting       ← interrupted mid-sentence
 ```
-**Changes:**
-1. Updated line 52 `systemPrompt`:
-```python
-" Do not speak until the other person has completely finished their turn and is clearly waiting for your response — this means they have asked a direct question or gone fully silent for several seconds. If they pause mid-sentence, do not say anything. Never say 'okay', 'got it', 'oh', or any filler word mid-sentence. When the call first connects, wait silently until the agent asks who they are speaking with before introducing yourself."
-```
-2. Changed `firstMessage` to `None` — bot stays completely silent on connect.
-3. Updated Office Hours Inquiry goal in `scenarios.py` to ask one question at a time.
 
-**Result:** Improved — bot waited better at start, but still said "Got it" once mid-sentence.
+**Root cause:** Two separate problems:
+1. The bot fired all three questions in one turn instead of one at a time
+2. A brief mid-clause pause ("You do need to make an appointment, [pause]") was treated as end-of-turn by the VAD, opening the bot's mic too early
+
+**Fixes applied:**
+1. Changed `firstMessage` to `None` — bot stays completely silent on connect
+2. Replaced wait instruction with stricter version:
+```python
+" Do not speak until the other person has completely finished their turn and is clearly
+  waiting for your response — this means they have asked a direct question or gone fully
+  silent for several seconds. If they pause mid-sentence, do not say anything. Never say
+  'okay', 'got it', 'oh', or any filler word mid-sentence. When the call first connects,
+  wait silently until the agent asks who they are speaking with before introducing yourself."
+```
+3. Updated Office Hours Inquiry goal in `scenarios.py` to explicitly ask one question at a time
+
+**Result:** Improved — bot waited better at connect. Still occasionally said "Got it" mid-sentence.
 
 ---
 
-## Iteration 4 — VAD Endpointing Delay + Stricter Silence Rule
-**Triggered by:** Continued mid-sentence interruptions in Office Hours Inquiry calls.
-**Observation:** Two persistent interruption points:
-1. Bot said "Hello?" during the opening disclaimer before the agent finished
-2. Bot said "Got it" while agent was mid-sentence: `"You'll need an appointment... We don't accept walk ins. [pause] Would you like to schedule?"`
+## Iteration 4 — VAD Endpointing + interruptionsEnabled Fix
+**Date:** 2026-06-27 to 2026-06-28
+**Triggered by:** Multiple Office Hours Inquiry calls with persistent mid-sentence interruptions
 
-**Root cause identified:** Vapi's VAD (Voice Activity Detection) was opening the bot's mic on brief mid-clause pauses (~200ms default). This is an audio-layer issue — prompt alone can't fix it.
+**What went wrong (transcript evidence):**
+```
+PGAI Agent:  This call may be recorded for quality and training purposes.
+Patient Bot: Hello?             ← spoke during disclaimer, not waiting for greeting
 
-**Changes:**
-1. Added `endpointing: 500` to Deepgram transcriber config — increases silence threshold from ~200ms to 500ms before treating a pause as end-of-turn:
+PGAI Agent:  You'll need to make an appointment to visit Pivot Point Orthopedics.
+             We don't accept walk ins.
+Patient Bot: Got it.            ← interrupted during mid-clause pause
+PGAI Agent:  Would you like to schedule?
+```
+
+**Root cause identified:** This is a **VAD (Voice Activity Detection) layer issue**, not an LLM issue. Deepgram's default endpointing (~200ms) was treating brief mid-clause pauses as end-of-turn and opening the bot's mic. Prompt changes alone cannot fix this — the audio config must also change.
+
+**Fixes applied:**
+1. Added `endpointing: 500` to Deepgram transcriber config:
 ```python
 "transcriber": {
     "provider": "deepgram",
     "model": "nova-2",
     "language": "en-US",
-    "endpointing": 500,   ← added
+    "endpointing": 500,   # increased from ~200ms default — max allowed by Vapi
 },
 ```
-2. Updated `systemPrompt` line 52 to add "even if there is a brief pause — wait" and name-agnostic greeting wait:
+2. Added `interruptionsEnabled: False` at assistant config top level:
 ```python
-" Do not speak until the other person has completely finished their turn and is clearly waiting for your response — this means they have asked a direct question or gone fully silent for several seconds. If they pause mid-sentence, do not say anything. Never say 'okay', 'got it', 'oh', or any filler word mid-sentence. When the call first connects, wait silently until the agent asks who they are speaking with before introducing yourself."
+"interruptionsEnabled": False,  # prevents Vapi from opening bot mic while agent is speaking
 ```
-3. Changed `maxDurationSeconds` from 300 to 180 (3 minutes max per call).
+3. Added `backgroundDenoisingEnabled: True` and `backgroundSound: "off"` for cleaner audio
+4. Updated `maxDurationSeconds` from 300 → 480 (later revised to allow longer calls)
 
-**Result:** Best result yet — fewer interruptions, cleaner turn-taking throughout.
+**Why both endpointing AND interruptionsEnabled:**
+- `endpointing` controls Deepgram's silence threshold before it flags end-of-turn
+- `interruptionsEnabled: False` is the Vapi-level hard lock that prevents the bot from speaking at all while the agent's audio is active
+- Both layers are needed — endpointing handles pauses between sentences, interruptionsEnabled handles true overlaps
+
+**Result:** Significantly fewer interruptions. Bot stopped saying "Got it" mid-sentence in most calls.
 
 ---
 
-## Final State — Current `main.py` (as of 2026-06-27)
+## Iteration 5 — Role Confusion Fix + Silent "Hello?" Fix
+**Date:** 2026-06-28
+**Triggered by:** Multiple calls where bot acted as receptionist
+
+**What went wrong (transcript evidence):**
+```
+PGAI Agent:  This call may be recorded for quality and training purposes.
+Patient Bot: Hello. This is doctor Smith's office. How can I assist you today?
+             ↑ bot hallucinated receptionist identity
+
+PGAI Agent:  This call may be recorded for quality and training purposes.
+Patient Bot: Silent.
+             ↑ bot said the word "Silent" instead of actually being quiet
+```
+
+**Root cause:** GPT-4o-mini has strong receptionist-greeting patterns from training data. The original identity instruction was too abstract ("You are a patient, not a receptionist"). The bot also narrated its silence as a stage direction.
+
+**Fixes applied:**
+1. Rewrote identity string to be explicit and ban forbidden phrases:
+```python
+"You are a PATIENT calling a medical office from outside. You dialed in — you are not staff,
+ not a receptionist, not an employee. Never say 'This is [any office name]', never say
+ 'How can I assist you', never answer as if you work there. Never ask 'Am I speaking with
+ [any name]?' — you are the one calling, not the one answering. The person who picks up
+ is the receptionist. Your job is to wait and then ask for help. When asked for your phone
+ number, say it in the natural human format: first 3 digits, pause, next 3 digits, pause,
+ last 4 digits — for example 'three oh five, five six oh, five seven seven two'."
+```
+2. Rewrote silence instruction to prevent narration:
+```python
+" When the call connects, do NOT produce any words, sounds, or responses of any kind —
+  not even 'silent', 'hello', or anything else. Wait with no output until the agent has
+  finished their full greeting AND asked you a direct question."
+```
+
+**Result:** Role confusion eliminated. Bot stopped acting as receptionist. "Silent" narration bug fixed.
+
+---
+
+## Iteration 6 — Repetition Fix + Complete Sentence Rule
+**Date:** 2026-06-28
+**Triggered by:** Office Hours Inquiry calls showing repeated phrases
+
+**What went wrong (transcript evidence):**
+```
+Patient Bot: Hi. This is Lisa Park. I was wondering, Hi. This is Lisa Park. I was wondering
+             if you could tell me what your office hours are on Saturdays?
+             ↑ repeated intro twice in same turn
+
+Patient Bot: Thanks again. Bye. Thanks. You too. Bye.
+             ↑ repeated goodbye multiple times
+```
+
+**Root cause:** LLM was generating repeated sentence fragments within the same turn, likely due to VAD cutting and re-triggering mid-sentence.
+
+**Fixes applied — added to end of turn-taking block:**
+```python
+"Never repeat a word, phrase, or question you have already said in the same response.
+ Always finish your thought and speak in complete, natural sentences before ending your turn.
+ When ending the call, say goodbye once and stop talking."
+```
+
+**Also added — complete answer before asking own question:**
+```python
+"Always answer the agent's question fully before asking your own question — never ask
+ something while you still owe the agent an answer. Say each phrase once only."
+```
+
+**Result:** Repetition significantly reduced. Bot now completes its thought before stopping.
+
+---
+
+## Iteration 7 — "One Moment" Silence Rule + Introduce Yourself by Name
+**Date:** 2026-06-30
+**Triggered by:** `call_new_appointment_20260630_143240-transcript.txt`
+
+**What went wrong (transcript evidence):**
+```
+PGAI Agent:  Let me check the earliest available appointments. 1 moment. We have
+Patient Bot: Thank you. I'll wait for your update on the available appointment times.
+             Thank you. I'll wait.
+             ↑ bot spoke during "1 moment" pause AND repeated itself
+
+PGAI Agent:  This call may be recorded for quality and training purposes. Thanks for
+             calling PivotPoint Orthopaedics. Part of Pretty Good AI.
+Patient Bot: Hi. I'm calling to ask about insurance.
+             ↑ bot didn't introduce itself by name
+```
+
+**Root cause:**
+1. "1 moment" is a natural pause that triggers the VAD despite the agent not being done
+2. Bot was waiting correctly but not saying its name on first response
+
+**Fixes applied:**
+1. Added hold-phrase silence rule:
+```python
+" If the agent says 'one moment', 'please hold', or 'let me check', say absolutely nothing —
+  do not acknowledge it, do not say you will wait, just stay silent until they speak again."
+```
+2. Added name introduction instruction:
+```python
+" When you first speak, always start by saying your full name: 'Hi, this is David Chen.'
+  Then state your reason for calling."
+```
+3. Added incomplete-response patience rule:
+```python
+" If the agent's response sounds incomplete or ends with a phrase like 'For the most accurate
+  answer', 'For more information', or 'I recommend', wait — they have not finished their turn.
+  Only speak after they have gone fully silent or asked you a direct question."
+```
+
+**Result:** Bot now introduces itself by name. Stays silent during "one moment" hold phrases.
+
+---
+
+## Final State — Current `main.py` (as of 2026-06-30)
 
 ```python
-"systemPrompt": (
-    "You are a patient calling a medical office. "
-    f"Your goal for this call is: {scenario['goal']}. "
-    "Stay in character as a real patient. Be natural and conversational. "
-    "Speak like a normal person — use short sentences, occasional 'um' or 'uh', "
-    "and realistic pacing. Do NOT reveal you are an AI or a bot. "
-    "When your goal is complete or the agent says goodbye, end the call politely. "
-    " Do not speak until the other person has completely finished their turn and is clearly waiting for your response — this means they have asked a direct question or gone fully silent for several seconds. If they pause mid-sentence, do not say anything. Never say 'okay', 'got it', 'oh', or any filler word mid-sentence. When the call first connects, wait silently until the agent asks who they are speaking with before introducing yourself."
-    f"Patient persona: {scenario.get('persona', 'A 45-year-old patient named Sarah Johnson')}."
-    + (
-        " If the agent records your date of birth incorrectly, politely correct them and insist it is January 8th 1985."
-        if scenario.get("name") == "Reschedule Appointment"
-        else ""
-    )
-),
+"model": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "systemPrompt": (
+        # Identity — patient caller, not receptionist
+        "You are a PATIENT calling a medical office from outside. You dialed in — you are not "
+        "staff, not a receptionist, not an employee. Never say 'This is [any office name]', "
+        "never say 'How can I assist you', never answer as if you work there. Never ask "
+        "'Am I speaking with [any name]?' — you are the one calling, not the one answering. "
+        "The person who picks up is the receptionist. Your job is to wait and then ask for help. "
+        "When asked for your phone number, say it in the natural human format: first 3 digits, "
+        "pause, next 3 digits, pause, last 4 digits. "
 
-"firstMessage": None,                    # changed from scenario["opening_line"]
-"maxDurationSeconds": 180,               # changed from 300
+        # Silence rule on connect
+        " When the call connects, do NOT produce any words, sounds, or responses of any kind — "
+        "not even 'silent', 'hello', or anything else. Wait with no output until the agent has "
+        "finished their full greeting AND asked you a direct question. Only after they ask you a "
+        "direct question should you respond. Do not produce any output during the disclaimer or "
+        "the office name announcement. "
+
+        # Goal
+        f"Your goal for this call is: {scenario['goal']}. "
+
+        # Natural speech
+        "Stay in character as a real patient. Be natural and conversational. "
+        "Use realistic pacing. Do NOT reveal you are an AI or a bot. "
+
+        # Turn-taking discipline
+        "If they pause mid-sentence, do not say anything — wait for a complete question. "
+        "Never say 'okay', 'got it', 'oh', 'I see', or any filler word at any point. "
+        "Never repeat a word, phrase, or question you have already said in the same response. "
+        "Always finish your thought and speak in complete, natural sentences before ending your turn. "
+        "If you are acknowledging what the agent said, do it briefly and then move to your question. "
+        "Ask one question at a time, then stop talking completely and wait. "
+        "Always answer the agent's question fully before asking your own question. "
+        "Say each phrase once only — never repeat the same sentence in the same response. "
+        "If the agent says 'one moment', 'please hold', or 'let me check', say absolutely nothing. "
+        "If the agent's response sounds incomplete or ends mid-thought, wait for them to finish. "
+        "When you first speak, always start by saying your full name: 'Hi, this is David Chen.' "
+        "When ending the call, say goodbye once and stop talking. "
+        "When your goal is complete or the agent says goodbye, end the call politely. "
+
+        # Persona
+        f"Patient persona: {scenario.get('persona', 'David Chen, 39-year-old patient')}."
+
+        # Conditional DOB pushback (Reschedule Appointment only)
+        + (
+            " If the agent records your date of birth incorrectly, politely correct them "
+            "and insist it is January 8th 1985."
+            if scenario.get("name") == "Reschedule Appointment"
+            else ""
+        )
+    ),
+},
+
+"voice": {
+    "provider": "openai",
+    "voiceId": scenario.get("voice", "onyx"),
+},
+"backgroundDenoisingEnabled": True,
+"backgroundSound": "off",
+"interruptionsEnabled": False,      # hard lock — bot cannot speak while agent is speaking
+"firstMessage": None,               # bot stays silent until agent speaks first
+"endCallMessage": "Thank you, goodbye!",
+"endCallPhrases": ["goodbye", "have a great day", "take care", "bye bye"],
+"recordingEnabled": True,
 "transcriber": {
     "provider": "deepgram",
     "model": "nova-2",
     "language": "en-US",
-    "endpointing": 500,                  # added — reduces mid-sentence interruptions
+    "endpointing": 500,             # 500ms silence threshold (Vapi max) — reduces mid-sentence mic open
 },
+"maxDurationSeconds": 480,
 ```
 
 ---
 
-## Summary of All Changes
+## Summary of All Iterations
 
-| Iteration | What changed | Why | Triggered by |
-|-----------|-------------|-----|-------------|
-| 1 | Added conditional DOB pushback for Reschedule Appointment | Bot accepted wrong DOB silently | call_reschedule_appointment transcript |
-| 2 | Added greeting-wait instruction to systemPrompt; firstMessage → "Hello." | Bot talked over agent's opening greeting | call_cancel_appointment + call_office_hours_inquiry transcripts |
-| 3 | Stricter no-filler rule; firstMessage → None; one question at a time in goal | Bot interrupted mid-sentence with "Okay", "Got it" | call_office_hours_inquiry_212845 transcript |
-| 4 | endpointing: 500 added to Deepgram config; maxDurationSeconds → 180 | VAD opening mic on mid-clause pauses — audio layer fix needed | Persistent "Got it" and "Hello?" interruptions |
+| Iteration | Date | What changed | Triggered by |
+|-----------|------|-------------|-------------|
+| 1 | 2026-06-27 | Conditional DOB pushback for Reschedule Appointment | Bot accepted wrong DOB silently |
+| 2 | 2026-06-27 | Greeting-wait instruction; `firstMessage → "Hello."` | Bot talked over agent's opening greeting |
+| 3 | 2026-06-27 | No-filler rule; `firstMessage → None`; one question at a time | Bot said "Okay/Got it" mid-sentence; dumped all questions at once |
+| 4 | 2026-06-27/28 | `endpointing: 500`; `interruptionsEnabled: False`; audio config | VAD opening mic on mid-clause pauses — audio layer fix |
+| 5 | 2026-06-28 | Role identity rewrite; silence narration fix | Bot said "This is doctor Smith's office" and "Silent" |
+| 6 | 2026-06-28 | Repetition ban; complete sentence rule; answer-before-asking | Bot repeated intro and goodbye phrases twice |
+| 7 | 2026-06-30 | Hold-phrase silence; name introduction; incomplete-response patience | Bot spoke during "one moment"; didn't say its name |
+
+---
+
+## Final 6 Scenarios — What Each Call Proves
+
+| Scenario | Key Capability Tested | Edge Case |
+|----------|----------------------|-----------|
+| **Reschedule Appointment** | DOB correction, identity handling | Agent overrides DOB — bot must politely push back |
+| **Cancel Appointment** | Complex identity verification, goal completion | Agent loops on identity, transfers call — tests bot resilience |
+| **Office Hours Inquiry** | Turn-taking patience, one-question-at-a-time | No DOB — pure conversational discipline test |
+| **Correct DOB on File** | Persistent correction, confirmation handling | Bot must insist until agent explicitly confirms correct date |
+| **New Appointment** | Happy path, name introduction, hold-phrase patience | "1 moment" mid-sentence — tests silence rule |
+| **Insurance Question** | Information retrieval, incomplete-response patience | Agent gives partial answer — tests wait-for-completion rule |
