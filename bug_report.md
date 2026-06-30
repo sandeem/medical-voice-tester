@@ -1,7 +1,7 @@
 # Bug Report — PGAI Agent Testing
 
 **Test Date:** June 27–30, 2026  
-**Calls Made:** 21  
+**Calls Made:** 24  
 **Test Number:** +1-805-439-8008  
 **System Under Test:** Pivot Point Orthopedics AI Agent (Pretty Good AI)
 
@@ -127,6 +127,61 @@ An agent that mispronounces or misspells its own clinic name undermines credibil
 
 ---
 
+## BUG-007
+
+**Severity:** Low  
+**Call:** `call_office_hours_inquiry_20260630_161020-transcript.txt`  
+**Timestamp:** ~15 seconds  
+**Scenario:** Office Hours Inquiry
+
+**Description:**  
+After the agent's opening greeting, the patient bot responded correctly but then repeated the question back to itself before asking it:
+```
+PGAI Agent: Am I speaking with David?
+Patient Bot: Yes. That's me. We are your office hours for Saturday?
+                              ↑ garbled repetition — "We are" instead of "What are"
+```
+The STT transcribed the bot's response as "We are your office hours for Saturday?" — a garbled version of "What are your office hours for Saturday?". This is a Deepgram STT artifact where the bot's first word ("What") was misheard as "We" and the question prefix was dropped, making the utterance grammatically incorrect but still contextually understandable to the agent.
+
+**Expected behavior:**  
+Bot should ask "What are your office hours on Saturday?" clearly and in a single, complete utterance.
+
+**Actual behavior:**  
+STT rendered "What are" as "We are", producing a garbled question that the agent nonetheless correctly interpreted.
+
+**Impact:**  
+Low severity — the agent understood the intent and answered correctly. However, this reveals that fast-speaking or clipped utterances from the bot can produce STT transcription errors that could mislead in more ambiguous contexts.
+
+---
+
+## BUG-008
+
+**Severity:** Medium  
+**Call:** `call_cancel_appointment_20260630_161713-transcript.txt`  
+**Timestamp:** ~90 seconds  
+**Scenario:** Cancel Appointment
+
+**Description:**  
+The agent successfully cancelled the appointment but could not provide any information about the cancellation fee or policy — a key part of the patient's request:
+```
+PGAI Agent: I do not have information about cancellation fees or specific policies.
+            Would you still like to proceed with canceling your appointment...
+```
+The agent acknowledged it lacked the information but still proceeded with the cancellation. The patient's secondary question ("Is there a cancellation fee?") was never answered across all 4 Cancel Appointment call attempts.
+
+Additionally, the agent garbled the doctor's name across multiple turns in the same call — referring to the same doctor as "the big new Lacoste MD", "the big new Lukoski MD", and "z big new Lukaszky" within a single conversation, creating a confusing and unprofessional experience.
+
+**Expected behavior:**  
+The agent should either provide cancellation policy details or clearly state where the patient can find this information (e.g., "Please check your appointment confirmation email"). Doctor names should be consistent and correctly pronounced across turns.
+
+**Actual behavior:**  
+Cancellation policy question is deflected with no alternative. Same doctor's name is rendered differently across turns in the same call due to STT/TTS inconsistency.
+
+**Impact:**  
+Patients cannot get cancellation fee information via the agent. Inconsistent name rendering erodes trust in the system's reliability and accuracy.
+
+---
+
 ## BUG-006
 
 **Severity:** Medium  
@@ -160,3 +215,5 @@ Patients receive incomplete scheduling information and must ask follow-up questi
 | BUG-004 | Medium | All | Agent responses cut off mid-sentence due to aggressive VAD/endpointing |
 | BUG-005 | Medium | Office Hours, Cancel | Clinic name garbled ("To the point," "Visit Point"); patient name garbled; wrong pronoun used |
 | BUG-006 | Medium | New Appointment | Agent cuts off own appointment list mid-sentence; demo DOB acceptance language exposed to caller |
+| BUG-007 | Low | Office Hours Inquiry | STT garbles bot's question ("We are your office hours" instead of "What are your office hours") |
+| BUG-008 | Medium | Cancel Appointment | Agent cannot provide cancellation policy; doctor name rendered inconsistently across turns |

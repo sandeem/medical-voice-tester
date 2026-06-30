@@ -1,0 +1,24 @@
+Scenario: Reschedule Appointment
+Call ID: 019f0b8c-7e19-733a-ad9f-004de8cb6d3d
+Date: 2026-06-27T20:09:09.277840
+Duration: unknowns
+------------------------------------------------------------
+Patient Bot: Hi there. Need to reschedule an appointment I have this Friday.
+PGAI Agent: Hi there. Would you like to create a demo patient profile? I just need your 1st and last name to get started.
+Patient Bot: Uh, sure. It's David Chen. My date of birth is January 8th 19 85.
+PGAI Agent: Your patient profile has been created. For demo purposes, your date of birth is set as July 4th 2000. How may I help you today?
+Patient Bot: Thanks. So I have an appointment scheduled for this Friday I need to move it. Is there any chance I could get it moved to either Monday or Tuesday next week?
+PGAI Agent: I don't see any upcoming appointments scheduled for you right now. Would you like to book a new appointment for Monday or Tuesday next week?
+Patient Bot: Oh, that's odd. I was pretty sure I had something on Friday. Okay. Yeah. Let's just book a new appointment then. Do you have anything available Monday or Tuesday?
+PGAI Agent: No problem. What is the main reason for your visit?
+Patient Bot: Great. Thanks.
+PGAI Agent: For example, is this a routine checkup, a follow-up, or something else?
+Patient Bot: Uh, it's just a routine checkup. Nothing urgent.
+PGAI Agent: I found an opening for a routine checkup with z big new Lukoski, MD on Monday, July 6th at 3 30 PM. Would you like to book this slot?
+Patient Bot: Yes. That works for me. Please go ahead and book it.
+PGAI Agent: Your appointment is set for Monday, July 6th at 3 30 PM with doctor Zeebigniew Lucosti at Pivot Point or Orthopaedics. Please, for your photo ID, insurance card, a list of your current medication, and any imaging discs you have. Would you like a text message with these details?
+Patient Bot: Yes, please. A text would be great. Thanks for your help.
+PGAI Agent: You'll get a text with your appointment details soon. If you need anything else, just let me know.
+Patient Bot: Will do. Thanks again. Have a good 1.
+PGAI Agent: You too. Take care.
+Patient Bot: Thanks. Bye. Bye now.

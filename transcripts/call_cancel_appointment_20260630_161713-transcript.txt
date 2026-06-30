@@ -1,0 +1,19 @@
+Scenario: Cancel Appointment
+Call ID: 019f1a2b-88f7-744c-a4c5-f8cad9250d4d
+Date: 2026-06-30T16:17:13.619439
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes. Thanks for calling PivotPoint Orthopedics. Part of Pretty Good AI.
+Patient Bot: Hi. This is David Chen. I need to cancel my upcoming appointment.
+PGAI Agent: Please provide your date of birth.
+Patient Bot: My date of birth is January 8th 19 85.
+PGAI Agent: You have 2 upcoming appointments. 1 is on Monday, July 6th with the big new Lacoste MD. The other is on Thursday, July 9th with Dougie Hauser. Which 1 would you like to cancel?
+Patient Bot: I would like to cancel the appointment on Monday, July 6th, with doctor Lacoste.
+PGAI Agent: Just to confirm, you want to cancel your appointment on Monday, July 6th with the big new Lukoski MD. Can you share the reason for canceling?
+Patient Bot: Yes. That's correct. I need to cancel because of a scheduling conflict that came up unexpectedly.
+PGAI Agent: Appointment.
+Patient Bot: Could you please tell me if there is a cancellation fee or any specific policy I should be aware of when canceling.
+PGAI Agent: I do not have information about cancellation fees or specific policies. Would you still like to proceed with canceling your appointment on Monday, July 6th with z big new Lukaskey and d. If so, please let me know your reason for canceling.
+Patient Bot: Yes. Please proceed with canceling the appointment. I already mentioned the reason is a scheduling conflict.
+PGAI Agent: Your appointment on July 6th with doctor Lukaszky has been canceled. Is there anything else I can help you with today?
+Patient Bot: No. That's all for now. Thank you very much. Goodbye.

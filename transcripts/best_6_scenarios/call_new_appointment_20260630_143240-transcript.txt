@@ -1,0 +1,23 @@
+Scenario: New Appointment
+Call ID: 019f19cb-562a-799d-ac5e-989cdf23e050
+Date: 2026-06-30T14:32:40.633575
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes.
+Patient Bot: No response, waiting for the receptionist's greeting in question.
+PGAI Agent: Am I speaking with David?
+Patient Bot: Yes. This is David Chen. I'm calling to schedule a new patient appointment. For a general checkup.
+PGAI Agent: Please provide your date of birth.
+Patient Bot: My date of birth is January 8 19 19 85. Could you please tell me the earliest available appointment slot you have next week?
+PGAI Agent: The birthday doesn't match our records, but for demo purposes, I'll accept it. How can I help you today?
+Patient Bot: Thank you for that. Could you please let me know what days and times are available next week for a general checkup appointment? I'm looking to schedule a general checkup as a new patient. Could you let me know the earliest available appointment next week?
+PGAI Agent: Just to confirm, you'd like to book a new patient consultation for a general checkup. Is that correct?
+Patient Bot: Yes. That's correct. I would like to book a new patient consultation for a general checkup.
+PGAI Agent: Let me check the earliest available appointments for a new patient checkup next week. 1 moment. We have
+Patient Bot: Thank you. I'll wait for your update on the available appointment times. Thank you. I'll wait.
+PGAI Agent: and 3 45 PM. Would you like to book 1 of these times?
+Patient Bot: I appreciate you checking. Would the 3 45 PM slot next week be available on Monday or another day?
+PGAI Agent: 30 PM, 3 PM, or 3 45 PM slot on Thursday, July 9th.
+Patient Bot: Thursday, July 9th at 3 45 PM works well for me. Please go ahead and book that appointment.
+PGAI Agent: You are scheduled for a new patient checkup with doctor Dougie Hauser on Thursday, July 9th at 3 45 PM. At Pivot Point Orthopedics. Please bring your photo ID, insurance card, a list of your current medications, and any imaging disks you have. Would you like a text message with these details?
+Patient Bot: Yes. Please send me a text message with the appointment details. My phone number is 3 0 5 5 6 0 5 7 7 2. Thank you very much. Goodbye.

@@ -1,0 +1,15 @@
+Scenario: Office Hours Inquiry
+Call ID: 019f1a26-249d-7cc7-bb20-325e06f6736d
+Date: 2026-06-30T16:10:20.566056
+Duration: unknowns
+------------------------------------------------------------
+PGAI Agent: This call may be recorded for quality and training purposes.
+Patient Bot: Hi. This is David Chen. I was wondering if you could tell me your office hours for Saturday.
+PGAI Agent: Am I speaking with David?
+Patient Bot: Yes. That's me. We are your office hours for Saturday?
+PGAI Agent: We're closed on Saturdays. Our clinic is open Monday through Friday. Is there anything else I can help you with?
+Patient Bot: Thanks for letting me know. Do I need an appointment to come in during the week? Or can I just walk in?
+PGAI Agent: You'll need an appointment to be seen during the week. We all accept walk ins.
+Patient Bot: Okay. Thanks. Is there parking available at your office?
+PGAI Agent: Yes. There is free patient parking in the surface lot in front of the building. Me know if you have any other questions.
+Patient Bot: That's helpful. Thank you. No. That's all I needed for now. Goodbye.
