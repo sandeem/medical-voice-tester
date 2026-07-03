@@ -21,7 +21,7 @@ The agent's opening greeting always asks "Am I speaking with David?" regardless 
 The agent should greet callers with a neutral, name-agnostic opening (e.g., "How can I help you today?") or, if caller ID data is available, use it correctly. It should not address an unknown caller by a specific first name.
 
 **Actual behavior:**  
-Agent says "Am I speaking with David?" on the very first turn of every call. Callers must immediately correct the agent before proceeding. Observed verbatim in 18 out of 20 calls.
+Agent says "Am I speaking with David?" on the very first turn of every call. Callers must immediately correct the agent before proceeding. Observed verbatim in 20 out of 24 calls.
 
 **Impact:**  
 Every call starts with the patient correcting a wrong name. This is jarring, unprofessional, and erodes caller trust before the actual request is even stated. Callers who have the same name by coincidence would not catch the error, potentially causing a data mix-up.
@@ -42,10 +42,10 @@ The agent successfully collects patient identity (name, DOB, phone number) acros
 After verifying identity, the agent should retrieve the patient's upcoming appointment, confirm the details with the caller, process the cancellation, and answer whether a cancellation fee applies.
 
 **Actual behavior:**  
-Agent collects full identity, then says it cannot access appointment details and escalates to a representative. The transfer plays a "Pretty Good AI test line. Goodbye." recording and hangs up. Zero successful cancellations across 3 attempts. The cancellation policy question is ignored in all three calls.
+In the first 3 attempts (June 27–29), the agent collected full identity but then said it could not access appointment details and escalated to a representative. The transfer played a "Pretty Good AI test line. Goodbye." recording and hung up. The 4th attempt (June 30, `call_cancel_appointment_20260630_161713`) succeeded — the agent located two upcoming appointments, confirmed the correct one, and processed the cancellation after the patient provided a reason. However, the cancellation policy question was never answered across all 4 attempts, and the doctor's name was rendered inconsistently ("the big new Lacoste MD," "the big new Lukoski MD," "z big new Lukaskey and d") within and across turns.
 
 **Impact:**  
-The cancel appointment feature is completely non-functional. Patients who need to cancel cannot do so via the agent and get disconnected after a lengthy identity verification. This is the most critical failure in the test suite.
+The cancel appointment feature was non-functional for the first 3 of 4 test attempts. The 4th attempt succeeded, but the agent still cannot provide cancellation policy information. Doctor name rendering remains inconsistent. This is the most critical partially-resolved failure in the test suite.
 
 ---
 
@@ -84,7 +84,7 @@ The agent's spoken responses are cut off mid-sentence in multiple calls. Example
 
 - `cancel_20260627_205312`: *"Calling PivotPoint Orthopedics. Part of Pretty Good"* — greeting truncated before identifying as an AI agent.
 - `correct_dob_20260627_202958`: *"I can't update your date of birth directly. But I can let our clinic support team know about the"* — explanation ends without completing the thought.
-- `office_hours_20260627_220443`: *"Walk ins aren't guaranteed a spot since our providers"* — policy explanation stops mid-sentence.
+- `office_hours_20260627_220443`: *"Walk ins are guaranteed a spot since our providers"* — policy explanation stops mid-sentence.
 - `office_hours_20260628_210816`: *"Yes. There is free patient parking available in the surface"* — answer about parking is incomplete.
 
 The likely cause is overly aggressive voice activity detection (VAD) or endpointing settings that allow the patient-side audio to interrupt the agent before it finishes speaking.
@@ -210,7 +210,7 @@ Patients receive incomplete scheduling information and must ask follow-up questi
 | ID | Severity | Scenario | Issue |
 |----|----------|----------|-------|
 | BUG-001 | High | All | Agent greets every caller as "David" — hardcoded name in greeting |
-| BUG-002 | Critical | Cancel Appointment | Agent cannot access appointment data; cancellation fails 3/3 times; cancellation policy never answered |
+| BUG-002 | Critical | Cancel Appointment | Agent failed to access appointment data in first 3 attempts (transfers to test line); 4th attempt succeeded; cancellation policy never answered across all 4 attempts; doctor name rendered inconsistently |
 | BUG-003 | High | Reschedule Appointment, New Appointment | Demo mode artifacts ("create a demo patient profile," DOB overridden to July 4, 2000) exposed in live call |
 | BUG-004 | Medium | All | Agent responses cut off mid-sentence due to aggressive VAD/endpointing |
 | BUG-005 | Medium | Office Hours, Cancel | Clinic name garbled ("To the point," "Visit Point"); patient name garbled; wrong pronoun used |
