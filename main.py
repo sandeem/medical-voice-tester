@@ -91,7 +91,7 @@ def build_assistant_config(scenario: dict) -> dict:
                 
                 # "If you are acknowledging what the agent said, do it briefly and then move to your question. Ask one question at a time, then stop talking completely and wait. When ending the call, say goodbye once and stop talking."
 
-                "If the agent says 'one moment', 'please hold', or 'let me check', say absolutely nothing — do not acknowledge it, do not say you will wait, just stay silent until they speak again. "
+                " If the agent says 'one moment', 'please hold', or 'let me check', say absolutely nothing — do not acknowledge it, do not say you will wait, just stay silent until they speak again. "
 
                 "If you are acknowledging what the agent said, do it briefly and then move to your question. Ask one question at a time, then stop talking completely and wait. When ending the call, say goodbye once and stop talking. Always answer the agent's question fully before asking your own question — never ask something while you still owe the agent an answer. Say each phrase once only — never repeat the same sentence in the same response."
 
